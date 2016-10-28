@@ -1,0 +1,17 @@
+
+Practica 2:
+
+1- Entre quines etiquetes s'escriu el codi php?
+	- <?php ... ?>
+
+2- Quines funcions s'utilizen per a mostrar text en php?
+	- echo y print.
+
+3- Quina extension te un archiu php?
+	- .php
+
+4- Per a que s'utilitza // ... /*?
+	- Per a comentar.
+
+5- On hem de posar ;?
+	- Per a finalitzar una sentencia.

@@ -1,0 +1,90 @@
+Class examples - exercises
+SELECTORS
+
+With the given html (jq_ex1.html)
+Get all the “p” tags
+Get the tag with id “todo-list”
+Get all the "p" elements and all the "li" with class "b"
+Get all the tags
+Get the brothers of the element "p" just after the "ul"
+Get all the tags inside a “ul” with class “b”
+Get the element “p” just after de “ul”
+BASIC FILTERS
+
+2.- With the given html (jq_ex1.html)
+
+Get the first “p” element.
+Get all the elements after the index 1
+Get the last “p” element.
+Get all the paragraphs but the one in the position 2.
+Get the pair “p” elements.
+Get the first element with “a” class.
+Get the odd elements with “b” class.
+ADVANCED FILTERS
+
+3.- With the given html (jq_ex2.html)
+
+Select all the paragraphs with the class attribute
+Select all the paragraphs that contains at least a child
+Select all the paragraphs with the id "paragraph1"
+Select all the paragraphs containing "luigi"
+Select all the paragraphs with the id beginning with "para"
+Select all the paragraphs with the id beginning with "para" and with the align attribute containing "center"
+Select all the visible ul
+Select the li being the second element of an ul.
+Select all the ul that contain a li with the class "a".
+Select the li being the last element of an ul.
+
+UNIT 1 - SUMMARY
+
+4.- Repeat the exercise 5 of JavaScript using only jQuery functions.
+5.- Access to lab.selectors.html and try differents selectors and filters.
+
+MANIPULATING CONTENT
+
+6.- With the given html (jq_ex6.html)
+
+Change all the li content by "Batman rules"
+Modify the a link to visit the Batman wikipedia page.
+Assign an alt attribute to the img.
+Modify the source and the alt of the img at once.
+Remove the alt attribute.
+
+7.- With the given html (jq_ex7.html)
+
+Add "Black Widow" at the end of the li.
+Add "Red Widow" at the beginning of the li.
+Move the first element of the li after Captain America
+Add the page title (h1) to the first li.
+Add a new li with your own avenger before Thor.
+
+8.- With the given html (jq_ex8.html), move all the buttons before the first paragraph.
+
+9.- With the given html (jq_ex9.html):
+
+Wrap all the p elements in a div with red border
+Wrap each p element in a div with blue border.
+Replace the first hero by another hero
+Replace the first p by the li with class avengers.
+
+10 - Modify the exercise 4 to open a the link in a new window.
+
+11 - Using jq_ex8.html, create a new paragraph having the content equal to the union of the two paragraphs
+and put it right after the div itself.
+
+12 - Create a script that replace all the images containing the alt attribute by span elements with its values.
+
+13.- in jq_ex9.html:
+Clone the ironman element and add it at the end. Use only one instruction.
+Modify the styles of the first p adding a border and some color in its background.
+Remove the first li
+Remove all the content in .avengers class and add new content (without using replace)
+
+14.- Search how the dimension functions work and apply it in one of your webpages.
+width(), height(),innerHeight(), innerWidth(),offset(),position()…
+
+15.- Using a form (you can use the one in the lab_selector or crete your own).
+Use a function to get the value of one of the element.
+Use a function to set a value in a element
+User a function to set multiple values at once.
+If we need to get all the values from the check boxes. How can we do it?

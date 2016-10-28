@@ -1,0 +1,15 @@
+
+9.- Create a program that shows the coordinates of your mouse.
+
+10.- Create an html with one image with the following functions:
+
+       10.1.- When the page has loaded, show a new element in the web (created with javascript and with h1 style), welcoming the new user.
+       10.2.- When the mouse is over the image, swap to other image. When is out, come back to the original image.
+       10.3.- When you click on the image, show the following alert "Stop clicking me!!"
+
+11.- Create a menu that shows a submenu when you are on it. Then, when you click on one of its options, redirect to other page.
+
+* You can create the menus with html, but it's not allowed to use CSS to show/hide the submenu.
+
+12.- Create an html with a TextField  that doesn't allow to type the following letters: Q,N and X (lower and upper case).
+Hint: To identify the letter typed, you need to look the keycode or charcode.

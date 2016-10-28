@@ -1,0 +1,46 @@
+Class examples - exercises
+1.- Open a new Window, get the focus and move it to the coordinates 500,1.
+
+2.- Show a confirm dialog and show and with a delay of 2 seconds (setTimeout function), show an alert with the selection done by the user.
+
+3.- Create an html with 2 buttons.
+
+First button will open a window with height=100 and weight=100 and will change the window color to red.
+
+Second button will resize that window to height=250 and weight=250 and get the focus.
+
+4.- Create an html with 3 images and 4 buttons with the following functions:
+---Scroll to first image
+---Scroll to second image
+---Scroll to third image
+---Shuffle images
+
+5.- From the given web page, using DOM functions, write in the html the following information:
+
+Number of links in the HTML.
+URL of the penultimate link.
+Number of links to  http://prueba
+Number of links in the third paragraph.
+6- No homepage is safe from the logo hacking!
+
+Open up www.google.com in Chrome or Firefox, and open up the console.
+Find the Google logo and store it in a variable.
+Modify the source of the logo IMG so that it's a Yahoo logo instead.
+Find the Google search button and store it in a variable.
+Modify the text of the button so that it says "Yahooo!" instead.
+7.- From the given HTML (128.1.32.100/juanra)
+
+Add a script tag to the bottom.
+Change the body style so it has a font-family of "Arial, sans-serif".
+Replace each of the spans (nickname, favourites, hometown) with your own information.
+Iterate through each li and change the class to "listitem". Add a style tag that sets a rule for "listitem" to make the color red.
+Create a new img element and set its src attribute to a picture of you. Append that element to the page.
+8.- Keep track of which books you read and which books you want to read!
+
+Create a webpage with an h1 of "My Book List".
+Add a script tag to the bottom of the page, where all your JS will go.
+Copy the array of books from the previous exercise.
+Iterate through the array of books. For each book, create a p element with the book title and author and append it to the page.
+Bonus: Use a ul and li to display the books.
+Bonus: add a property to each book with the URL of the book cover, and add an img element for each book on the page.
+Bonus: Change the style of the book depending on whether you have read it or not.

@@ -1,0 +1,10 @@
+
+Practica 7:
+
+Què li passa a les següents variables?
+
+Variable = 2; ---> Dona error perque comença sense el signe $.
+$ variable = 2; ---> Dona error perque te un espai entre el signe $ i el nom de la variable.
+Variable$ = 2; ---> Dona error perque no comença amb el signe $.
+$Nom de la variable = 2; --->Dona error perque el nom de la variable te espais.
+$_variable 2; --->Dona error perque no usa el signe = per asignar el valor.

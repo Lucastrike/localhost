@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Type a number</title>
+    <script>
+
+    var counter = 0;
+    var number;
+    do {
+      number = prompt("Type a number: ");
+      counter++;
+      if (number == ""){
+        alert("You have to type something!");
+      }
+      else if (!isNaN(number)) {
+        alert("You did it!");
+        break;
+      }
+      else {
+        alert("Let's try again!");
+      }
+    } while (counter <= 9);
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

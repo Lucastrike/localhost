@@ -1,0 +1,17 @@
+
+Practica 6:
+
+1- Quin signe s'utilitza per nomenar una variable?
+	- $
+	On va situat?
+	- Avanç del nom de la variable.
+
+2- Quins caracters poden contenir els noms de variables?
+	- a-z, A-Z, 0-9, i _
+
+3- Distingeixen entre majuscules i minuscules?
+  - Si
+
+4- Per a que necessiten el signe = i el ;?
+  - el signe "=" es per a ficar un valor a una variable.
+  - el signe ";" es per a tancar una sentencia.
