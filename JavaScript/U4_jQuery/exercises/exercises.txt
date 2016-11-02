@@ -88,3 +88,23 @@ Use a function to get the value of one of the element.
 Use a function to set a value in a element
 User a function to set multiple values at once.
 If we need to get all the values from the check boxes. How can we do it?
+
+16.- Create a div (200x200 and with some content) with the following functions:
+Change the style when the mouse is over and when the mouse is out
+When you click on it, remove the function number one and change the content of the div.
+
+17.- Add two options to a drop-down list using jQuery.
+
+18.- When you select one of the options, create a new drop-down menu with values
+
+19- Change the button text when you click on it.
+
+20.- Fill a html dynamically using PHP and jQuery.
+
+21- You are going to create a hint in a input text. To do that, you need a label and an input text (created in html).
+
+Set the value of the input equal to the value of the label.
+Add the class hint to the input
+Remove the label element
+Link a focus event in the input to remove the hint text and the class hint.
+Link a blur event in the input to restore the hint text and the hint class only if the user has no entered any text.
