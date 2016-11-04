@@ -27,20 +27,10 @@
   </head>
   <body>
 
-        <form class="form-horizontal" action="insert.php" method="post">
+        <form class="form-horizontal" action="checkLogin.php" method="post">
       <div class="form-group">
         <div class="col-sm-4 col-sm-offset-4">
           <input type="text" class="form-control" id="inputUsername" placeholder="Username" name="Username">
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-4 col-sm-offset-4">
-          <input type="text" class="form-control" id="inputName" placeholder="Name" name="Name">
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-4 col-sm-offset-4">
-          <input type="text" class="form-control" id="inputSurname" placeholder="Surname" name="Surname">
         </div>
       </div>
       <div class="form-group">
@@ -58,8 +48,11 @@
         </div>
       </div>-->
       <div class="form-group">
-        <div class="col-sm-2 col-sm-offset-5">
-          <button type="submit" class="btn btn-success center-block">Sign up</button>
+        <div class="col-sm-1 col-sm-offset-6">
+          <button type="submit" class="btn btn-success center-block">Sign in</button>
+        </div>
+        <div class="col-sm-1">
+          <a href="register.php" class="btn btn-success">Sing up</a>
         </div>
       </div>
     </form>
