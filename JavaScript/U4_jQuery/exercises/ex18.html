@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>ex18</title>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+        <style>
+          .dropdown {
+            margin-left: 200px;
+            margin-top: 100px;
+          }
+        </style>
+    </head>
+    <body>
+
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle btnvehiculos" type="button" data-toggle="dropdown">Vehículos
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="#" class="coche">Coche</a>
+                </li>
+                <li>
+                    <a href="#" class="moto">Moto</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="dropdown dropcoche hidden">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Coche
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="#">Seat</a>
+                </li>
+                <li>
+                    <a href="#">Audi</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="dropdown dropmoto hidden">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Moto
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="#">Suzuki</a>
+                </li>
+                <li>
+                    <a href="#">Honda</a>
+                </li>
+            </ul>
+        </div>
+
+        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/ex18.js"></script>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </body>
+</html>

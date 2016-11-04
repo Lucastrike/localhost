@@ -102,7 +102,6 @@ When you click on it, remove the function number one and change the content of t
 20.- Fill a html dynamically using PHP and jQuery.
 
 21- You are going to create a hint in a input text. To do that, you need a label and an input text (created in html).
-
 Set the value of the input equal to the value of the label.
 Add the class hint to the input
 Remove the label element
