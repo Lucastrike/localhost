@@ -16,6 +16,9 @@ $("document").ready(function() {
     });
   });*/
 
-  
+
+  $("#btnaction").on('click', function(){
+      $("#image")[$("input:checked").val()]();
+  });
 
 });
