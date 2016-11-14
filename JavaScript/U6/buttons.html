@@ -9,11 +9,12 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
         <style>
-        .hey {
-          margin-left: 350px;
-        }
         .well {
           margin-top: 10px;
+        }
+        .a{
+          color: red;
+          text-align: center;
         }
         </style>
     </head>
@@ -24,13 +25,34 @@
             <button type="button" class="btn btn-default" id="btnhide">Hide</button>
             <button type="button" class="btn btn-default" id="btntoggle">Toggle</button>-->
             <span class="input-group-addon">
-              <input type="radio" name="opt" id="btnshow">Show</input>
-              <input type="radio" name="opt" id="btnhide">Hide</input>
-              <input type="radio" name="opt" id="btntoggle">Toggle</input>
+              <input type="radio" class="effect" name="opt" value="show" id="btnshow">Show</input>
+              <input type="radio" class="effect" name="opt" value="hide" id="btnhide">Hide</input>
+              <input type="radio" class="effect" name="opt" value="toggle" id="btntoggle">Toggle</input>
+              <input type="radio" class="effect" name="opt" value="fadeIn" id="btnfadein">FadeIn</input>
+              <input type="radio" class="effect" name="opt" value="fadeOut" id="btnfadeout">FadeOut</input>
+              <input type="radio" class="effect" name="opt" value="fadeTo" id="btnfadeto">FadeTo</input>
             </span>
           </div>
+
           <div class="col-xs-8 col-xs-offset-2 well">
-            <button type="button" class="btn btn-default hey" id="btnaction">Apply effect!</button>
+            <input type="text" value="" class="center-block" disabled placeholder="opacity" id="opacity"></input>
+          </div>
+
+          <div class="col-xs-8 col-xs-offset-2 well">
+            <span class="input-group-addon">
+              <input type="radio" class="speed" name="opt" value="slow" id="slow">slow</input>
+              <input type="radio" class="speed" name="opt" value="normal" id="normal">normal</input>
+              <input type="radio" class="speed" name="opt" value="fast" id="fast">fast</input>
+              <input type="radio" class="speed" name="opt" value="milliseconds" id="milliseconds">milliseconds</input>
+            </span>
+            <br>
+            <div class="row">
+              <input type="text" value="" class="center-block" disabled placeholder="speed" id="speed"></input>
+            </div>
+          </div>
+
+          <div class="col-xs-8 col-xs-offset-2 well">
+            <button type="button" class="btn btn-default hey center-block" id="btnaction">Apply effect!</button>
           </div>
 
           <div class="col-xs-8 col-xs-offset-2 well">
