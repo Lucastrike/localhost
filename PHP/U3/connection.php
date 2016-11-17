@@ -1,6 +1,6 @@
 <?php
 
-$connection = mysqli_connect ("localhost", "", "", "solvam_lucassalinas");
+$connection = mysqli_connect ("localhost", "", "", "zapashion");
 if (mysqli_connect_errno ()) {
   echo "Conection failed:".mysqli_connect_error ();
 }
