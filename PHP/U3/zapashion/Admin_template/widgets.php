@@ -1,4 +1,3 @@
-
 <?php
 	include "menu.php";
 	//include('check_active_session.php');
@@ -37,7 +36,7 @@
 
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Dashboard</h1>
+				<h1 class="page-header">Widgets</h1>
 			</div>
 		</div><!--/.row-->
 
@@ -97,62 +96,50 @@
 		</div><!--/.row-->
 
 		<div class="row">
-			<div class="col-lg-12">
-				<div class="panel panel-default">
-					<div class="panel-heading">Site Traffic Overview</div>
-					<div class="panel-body">
-						<div class="canvas-wrapper">
-							<canvas class="main-chart" id="line-chart" height="200" width="600"></canvas>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/.row-->
-
-		<div class="row">
-			<div class="col-xs-6 col-md-3">
-				<div class="panel panel-default">
-					<div class="panel-body easypiechart-panel">
-						<h4>New Orders</h4>
-						<div class="easypiechart" id="easypiechart-blue" data-percent="92" ><span class="percent">92%</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<div class="panel panel-default">
-					<div class="panel-body easypiechart-panel">
-						<h4>Comments</h4>
-						<div class="easypiechart" id="easypiechart-orange" data-percent="65" ><span class="percent">65%</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<div class="panel panel-default">
-					<div class="panel-body easypiechart-panel">
-						<h4>New Users</h4>
-						<div class="easypiechart" id="easypiechart-teal" data-percent="56" ><span class="percent">56%</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<div class="panel panel-default">
-					<div class="panel-body easypiechart-panel">
-						<h4>Visitors</h4>
-						<div class="easypiechart" id="easypiechart-red" data-percent="27" ><span class="percent">27%</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/.row-->
-
-		<div class="row">
 			<div class="col-md-8">
+				<div class="panel panel-default">
+					<div class="panel-heading"><svg class="glyph stroked email"><use xlink:href="#stroked-email"></use></svg> Contact Form</div>
+					<div class="panel-body">
+						<form class="form-horizontal" action="" method="post">
+							<fieldset>
+								<!-- Name input-->
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="name">Name</label>
+									<div class="col-md-9">
+									<input id="name" name="name" type="text" placeholder="Your name" class="form-control">
+									</div>
+								</div>
+
+								<!-- Email input-->
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="email">Your E-mail</label>
+									<div class="col-md-9">
+										<input id="email" name="email" type="text" placeholder="Your email" class="form-control">
+									</div>
+								</div>
+
+								<!-- Message body -->
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="message">Your message</label>
+									<div class="col-md-9">
+										<textarea class="form-control" id="message" name="message" placeholder="Please enter your message here..." rows="5"></textarea>
+									</div>
+								</div>
+
+								<!-- Form actions -->
+								<div class="form-group">
+									<div class="col-md-12 widget-right">
+										<button type="submit" class="btn btn-default btn-md pull-right">Submit</button>
+									</div>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+				</div>
 
 				<div class="panel panel-default chat">
 					<div class="panel-heading" id="accordion"><svg class="glyph stroked two-messages"><use xlink:href="#stroked-two-messages"></use></svg> Chat</div>
+
 					<div class="panel-body">
 						<ul>
 							<li class="left clearfix">
@@ -210,6 +197,13 @@
 			</div><!--/.col-->
 
 			<div class="col-md-4">
+
+				<div class="panel panel-red">
+					<div class="panel-heading dark-overlay"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg>Calendar</div>
+					<div class="panel-body">
+						<div id="calendar"></div>
+					</div>
+				</div>
 
 				<div class="panel panel-blue">
 					<div class="panel-heading dark-overlay"><svg class="glyph stroked clipboard-with-paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg>To-do List</div>
@@ -296,6 +290,7 @@
 			</div><!--/.col-->
 		</div><!--/.row-->
 	</div>	<!--/.main-->
+
 
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
