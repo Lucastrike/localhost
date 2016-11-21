@@ -1,7 +1,7 @@
 
 <?php
+	include('check_active_session.php');
 	include "menu.php";
-	//include('check_active_session.php');
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +31,7 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Icons</li>
+				<li class="active">Dashboard</li>
 			</ol>
 		</div><!--/.row-->
 

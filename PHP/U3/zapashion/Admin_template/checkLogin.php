@@ -17,7 +17,11 @@
         if ($password == $row['password']) {
           $_SESSION['usuario'] = $email;
           header('location: gestion.php');
+        }else {
+          header('location: index.php');
         }
+      }else {
+        header('location: index.php');
       }
     }
   }
