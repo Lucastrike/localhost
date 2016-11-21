@@ -68,7 +68,22 @@
         <script>
             $(document).ready(function() {
 
-              $(".tablero").sortable();
+              $("#tablero").sortable({
+              }).disableSelection();
+
+               $("#tablero").on("sortout", function( event, ui ) {
+                 var pos1=$("#uno").position();
+                 var pos2=$("#dos").position();
+                 var pos3=$("#tres").position();
+                 var pos4=$("#cuatro").position();
+                 console.log(pos1);
+                 console.log(pos2);
+                 console.log(pos3);
+                 console.log(pos4);
+
+                if((pos1.left==48 && pos1.top==16) && (pos2.left==448 && pos2.top==16) && (pos3.left==48 && pos3.top==266) && (pos4.left==448 && pos4.top==266)){
+                  alert("Well Done!");
+                }
 
             });
         </script>
@@ -78,10 +93,10 @@
 
         <div class="container">
             <div class="tablero">
-                <div class="pieza uno"></div>
-                <div class="pieza dos"></div>
-                <div class="pieza tres"></div>
-                <div class="pieza cuatro"></div>
+                <div class="pieza uno" id="uno"></div>
+                <div class="pieza dos" id="dos"></div>
+                <div class="pieza tres" id="tres"></div>
+                <div class="pieza cuatro" id="cuatro"></div>
             </div>
 
             <div class="preview"></div>
