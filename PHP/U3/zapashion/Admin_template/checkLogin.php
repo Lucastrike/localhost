@@ -14,14 +14,12 @@
     $query = mysqli_query($connection, "SELECT * FROM usuarios");
     while ($row = mysqli_fetch_array($query)) {
       if ($email == $row['usuario']) {
-        if ($password == $row['password']) {
+        if ($pass == $row['password'] && $email == $row['usuario']) {
           $_SESSION['usuario'] = $email;
           header('location: gestion.php');
         }else {
           header('location: index.php');
         }
-      }else {
-        header('location: index.php');
       }
     }
   }

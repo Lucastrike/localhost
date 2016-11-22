@@ -1,13 +1,21 @@
+
 <!DOCTYPE html>
 <html >
     <head>
         <meta charset="UTF-8">
-        <title>Sign-Up/Login Form</title>
+        <title>Zapashion</title>
         <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
         <link rel="stylesheet" href="css/style.css">
-
+        <style media="screen">
+          .g-recaptcha > div {
+            margin: auto;
+            margin-bottom: 10px;
+            margin-top: -10px;
+          }
+        </style>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
 
     <body>
@@ -24,9 +32,8 @@
 
             <div class="tab-content">
                 <div id="signup">
-                    <h1>Sign Up for Free</h1>
 
-                    <form action="#" method="post" id="formSingUp">
+                    <form action="insert.php" method="post" id="formSingUp">
                         <div class="top-row">
                             <div class="field-wrap">
                                 <label>
@@ -51,8 +58,17 @@
                             <label>
                                 Set A Password<span class="req">*</span>
                             </label>
-                            <input type="password" autocomplete="off" name="password"/>
+                            <input type="password" autocomplete="off" name="password" id="pass"/>
                         </div>
+                        <div class="field-wrap">
+                            <label>
+                                Confirm Password<span class="req">*</span>
+                            </label>
+                            <input type="password" autocomplete="off" name="rePassword"/>
+                        </div>
+
+                        <div class="g-recaptcha pull-right" data-sitekey="6LcQnwwUAAAAANQKmyvNQyz1aJicJkkLxgMym-ke"></div>
+
                         <button class="button button-block"/>Get Started</button>
                 </form>
             </div>
@@ -77,6 +93,7 @@
                     </p>
                     <button class="button button-block"/>Log In</button>
             </form>
+
         </div>
     </div>
     <!-- tab-content -->
@@ -94,7 +111,11 @@
                 firstName: "required",
                 lastName: "required",
                 email: "required",
-                password: "required"
+                password: "required",
+                rePassword: {
+                  required: true,
+                  equalTo: '#pass'
+                }
             }
         });
 
