@@ -1,6 +1,6 @@
 <?php
 	include "menu.php";
-	//include('check_active_session.php');
+	include('check_active_session.php');
 ?>
 
 <!DOCTYPE html>
@@ -14,14 +14,38 @@
 <link href="css/datepicker3.css" rel="stylesheet">
 <link href="css/bootstrap-table.css" rel="stylesheet">
 <link href="css/styles.css" rel="stylesheet">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/blitzer/jquery-ui.css">
 
 <!--Icons-->
 <script src="js/lumino.glyphs.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
 
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
 <script src="js/respond.min.js"></script>
 <![endif]-->
+
+<script type="text/javascript">
+$(function() {
+	$("#dialog1").dialog({
+		autoOpen: false,
+		modal: true,
+		draggable: false,
+		resizable: false,
+		dialogClass: 'ui-dialog-osx',
+	});
+});
+
+$(document).ready(function(){
+
+	$("table").on("click", ".botonrellenar", function() {
+		var rellenar = $(this).parent().prev().children().html();
+		$("#marcaeditar").val(rellenar);
+		$("#dialog1").dialog("open");
+	});
+
+});
+</script>
 
 </head>
 
@@ -42,29 +66,58 @@
 		</div><!--/.row-->
 
 
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="panel panel-default">
-					<div class="panel-heading">Tabla usuarios</div>
-					<div class="panel-body">
-						<table data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
-						    <thead>
-						    <tr>
-						        <th data-field="state" data-checkbox="true" >Item ID</th>
-						        <th data-field="id" data-sortable="true">Item ID</th>
-						        <th data-field="name"  data-sortable="true">Item Name</th>
-						        <th data-field="price" data-sortable="true">Item Price</th>
-						    </tr>
-						    </thead>
-						</table>
-					</div>
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">Usuarios</div>
+				<div class="panel-body">
+					<table data-toggle="table">
+							<thead>
+							<tr>
+									<th data-field="id">ID</th>
+									<th data-field="name">User</th>
+									<th data-field="price">Name</th>
+									<th data-field="price">Lastname</th>
+									<th data-field="price">Password</th>
+							</tr>
+							</thead>
+							<tbody>
+								<?php
+								$tableUser = "SELECT * FROM usuarios";
+								$userQuery = mysqli_query($connection, $tableUser);
+								while ($row = mysqli_fetch_array($userQuery)) {
+									?>
+									<tr>
+										<td><?php echo $row['id_usuario']; ?></td>
+										<td><?php echo $row['usuario']; ?></td>
+										<td><?php echo $row['nombre']; ?></td>
+										<td><?php echo $row['apellido']; ?></td>
+										<td><?php echo $row['password']; ?></td>
+										<td>
+											<button class="btn btn-warning botonrellenar" type="button" name="button">Modify</button>
+											<button class="btn btn-danger" type="button" name="button">Delete</button>
+										</td>
+									</tr>
+									<?php } ?>
+
+							</tbody>
+					</table>
 				</div>
 			</div>
-		</div><!--/.row-->
+		</div>
+
+		<div id="dialog1" title="Editar Marca" class="hidden">
+      <h3>Editar Marca</h3>
+      <form action="" method="post">
+        <input type="text" class="form-control" id="marcaeditar" name="marcaeditar" placeholder="Genero">
+				<input type="text" class="form-control" id="marcaeditar" name="marcaeditar" placeholder="Genero">
+				<input type="text" class="form-control" id="marcaeditar" name="marcaeditar" placeholder="Genero">
+        <input type="submit" name="editarmarca" class="btn btn-default" value="Enviar">
+      </form>
+ 		</div>
 
 	</div><!--/.main-->
 
-	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/chart.min.js"></script>
 	<script src="js/chart-data.js"></script>
@@ -87,6 +140,7 @@
 		  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
 		})
 	</script>
+
 </body>
 
 </html>
