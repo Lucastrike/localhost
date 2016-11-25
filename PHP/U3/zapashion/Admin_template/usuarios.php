@@ -14,7 +14,6 @@
 <link href="css/datepicker3.css" rel="stylesheet">
 <link href="css/bootstrap-table.css" rel="stylesheet">
 <link href="css/styles.css" rel="stylesheet">
-<!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/blitzer/jquery-ui.css">-->
 
 <!--Icons-->
 <script src="js/lumino.glyphs.js"></script>
@@ -28,15 +27,18 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
-	console.log("ejecuta");
 
 	$("table").on("click", ".botonrellenar", function() {
-		console.log("entra");
-		var rellenar = $(this).parent().prev().children().html();
-		console.log(rellenar);
-		$("#marcaeditar").val(rellenar);
+		var id = $(this).parent().prev().prev().prev().prev().prev().html();
+		$("#editId").val(id);
 
-		var lastName = $(this).parent().prev().html();
+		var user = $(this).parent().prev().prev().prev().prev().html();
+		$("#editUser").val(user);
+
+		var name = $(this).parent().prev().prev().prev().html();
+		$("#editName").val(name);
+
+		var lastName = $(this).parent().prev().prev().html();
 		$("#editLast").val(lastName);
 
 		var pass = $(this).parent().prev().html();
@@ -72,11 +74,12 @@ $(document).ready(function(){
 					<table data-toggle="table">
 							<thead>
 							<tr>
-									<th data-field="id">ID</th>
-									<th data-field="name">User</th>
-									<th data-field="price">Name</th>
-									<th data-field="price">Lastname</th>
-									<th data-field="price">Password</th>
+									<th>ID</th>
+									<th>User</th>
+									<th>Name</th>
+									<th>Lastname</th>
+									<th>Password</th>
+									<th></th>
 							</tr>
 							</thead>
 							<tbody>
@@ -93,7 +96,7 @@ $(document).ready(function(){
 										<td><?php echo $row['password']; ?></td>
 										<td>
 											<button class="btn btn-warning botonrellenar" data-toggle="modal" data-target="#myModal" type="button" name="button">Modify</button>
-											<button class="btn btn-danger" type="button" name="button">Delete</button>
+											<a href="delete_user.php?id=<?php echo $row['id_usuario']; ?>" class="btn btn-danger" type="button" name="deleteId">Delete</a>
 										</td>
 									</tr>
 									<?php } ?>
@@ -112,12 +115,13 @@ $(document).ready(function(){
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		        <h4 class="modal-title" id="myModalLabel">Edit users</h4>
 		      </div>
-					<form action="" method="post">
+					<form action="edit_user.php" method="post">
 		      <div class="modal-body">
-			        <input type="text" class="form-control" id="editUser" name="marcaeditar" placeholder="User">
-							<input type="text" class="form-control" id="editName" name="marcaeditar" placeholder="Name">
-							<input type="text" class="form-control" id="editLast" name="marcaeditar" placeholder="Lastname">
-							<input type="text" class="form-control" id="editPass" name="marcaeditar" placeholder="Password">
+							<input type="text" class="form-control" id="editId" name="editId" placeholder="User" readonly>
+			        <input type="text" class="form-control" id="editUser" name="editUser" placeholder="User">
+							<input type="text" class="form-control" id="editName" name="editName" placeholder="Name">
+							<input type="text" class="form-control" id="editLast" name="editLast" placeholder="Lastname">
+							<input type="text" class="form-control" id="editPass" name="editPass" placeholder="Password">
 		      </div>
 		      <div class="modal-footer">
 		        <button type="submit" class="btn btn-primary">Save changes</button>
