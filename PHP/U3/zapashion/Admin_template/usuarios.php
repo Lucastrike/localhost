@@ -14,7 +14,7 @@
 <link href="css/datepicker3.css" rel="stylesheet">
 <link href="css/bootstrap-table.css" rel="stylesheet">
 <link href="css/styles.css" rel="stylesheet">
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/blitzer/jquery-ui.css">
+<!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/blitzer/jquery-ui.css">-->
 
 <!--Icons-->
 <script src="js/lumino.glyphs.js"></script>
@@ -26,22 +26,21 @@
 <![endif]-->
 
 <script type="text/javascript">
-$(function() {
-	$("#dialog1").dialog({
-		autoOpen: false,
-		modal: true,
-		draggable: false,
-		resizable: false,
-		dialogClass: 'ui-dialog-osx',
-	});
-});
 
 $(document).ready(function(){
+	console.log("ejecuta");
 
 	$("table").on("click", ".botonrellenar", function() {
+		console.log("entra");
 		var rellenar = $(this).parent().prev().children().html();
+		console.log(rellenar);
 		$("#marcaeditar").val(rellenar);
-		$("#dialog1").dialog("open");
+
+		var lastName = $(this).parent().prev().html();
+		$("#editLast").val(lastName);
+
+		var pass = $(this).parent().prev().html();
+		$("#editPass").val(pass);
 	});
 
 });
@@ -93,7 +92,7 @@ $(document).ready(function(){
 										<td><?php echo $row['apellido']; ?></td>
 										<td><?php echo $row['password']; ?></td>
 										<td>
-											<button class="btn btn-warning botonrellenar" type="button" name="button">Modify</button>
+											<button class="btn btn-warning botonrellenar" data-toggle="modal" data-target="#myModal" type="button" name="button">Modify</button>
 											<button class="btn btn-danger" type="button" name="button">Delete</button>
 										</td>
 									</tr>
@@ -105,15 +104,28 @@ $(document).ready(function(){
 			</div>
 		</div>
 
-		<div id="dialog1" title="Editar Marca" class="hidden">
-      <h3>Editar Marca</h3>
-      <form action="" method="post">
-        <input type="text" class="form-control" id="marcaeditar" name="marcaeditar" placeholder="Genero">
-				<input type="text" class="form-control" id="marcaeditar" name="marcaeditar" placeholder="Genero">
-				<input type="text" class="form-control" id="marcaeditar" name="marcaeditar" placeholder="Genero">
-        <input type="submit" name="editarmarca" class="btn btn-default" value="Enviar">
-      </form>
- 		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Edit users</h4>
+		      </div>
+					<form action="" method="post">
+		      <div class="modal-body">
+			        <input type="text" class="form-control" id="editUser" name="marcaeditar" placeholder="User">
+							<input type="text" class="form-control" id="editName" name="marcaeditar" placeholder="Name">
+							<input type="text" class="form-control" id="editLast" name="marcaeditar" placeholder="Lastname">
+							<input type="text" class="form-control" id="editPass" name="marcaeditar" placeholder="Password">
+		      </div>
+		      <div class="modal-footer">
+		        <button type="submit" class="btn btn-primary">Save changes</button>
+		      </div>
+				</form>
+		    </div>
+		  </div>
+		</div>
 
 	</div><!--/.main-->
 
