@@ -1,7 +1,13 @@
 
 <?php
 	include('check_active_session.php');
-	include "menu.php";
+
+	if ($_SESSION['usuario'] == "lucastrike1@gmail.com") {
+		include "menuAdmin.php";
+	}
+	else {
+		include "menu.php";
+	}
 ?>
 
 <!DOCTYPE html>

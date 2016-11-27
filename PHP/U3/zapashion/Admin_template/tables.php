@@ -1,6 +1,12 @@
 <?php
-	include "menu.php";
-	//include('check_active_session.php');
+	include('check_active_session.php');
+
+	if ($_SESSION['usuario'] == "lucastrike1@gmail.com") {
+		include "menuAdmin.php";
+	}
+	else {
+		include "menu.php";
+	}
 ?>
 
 <!DOCTYPE html>

@@ -7,9 +7,6 @@
         <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
-        <!-- Meta Google Login -->
-        <meta name="google-signin-client_id" content="122319936043-j0465u7it13cn5oa1aefd363eb51hers.apps.googleusercontent.com">
-
         <link rel="stylesheet" href="css/style.css">
         <style media="screen">
           .g-recaptcha > div {
@@ -21,8 +18,6 @@
         <script type="text/javascript" src="js/login_Google.js"></script>
         <script src='https://www.google.com/recaptcha/api.js'></script>
 
-        <!-- Script Google Login -->
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
     </head>
 
     <body>
@@ -98,11 +93,7 @@
                     <p class="forgot">
                         <a href="#">Forgot Password?</a>
                     </p>
-                    <button class="button button-block"/>Log In</button>
-                    <div class=" containerLogin col-xs-12">
-                      <div class="g-signin2" data-width="520" data-height="70" data-longtitle="true" data-onsuccess="onSignIn"></div>
-                      <a href="" onclick="signOut();">Sign out</a>
-                    </div>
+                    <button type="submit" class="button button-block"/>Log In</button>
             </form>
 
         </div>

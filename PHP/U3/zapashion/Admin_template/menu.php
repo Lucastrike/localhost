@@ -56,10 +56,10 @@
   			<li><a href="forms.php"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Forms</a></li>
   			<li><a href="panels.php"><svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Alerts &amp; Panels</a></li>
   			<li><a href="icons.php"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Icons</a></li>
-        <li><a href="usuarios.php"><svg class="glyph filo female-user"><use xlink:href="#filo-female-user"></use></svg> Usuarios</a></li>
+        <!--<li><a href="usuarios.php"><svg class="glyph filo female-user"><use xlink:href="#filo-female-user"></use></svg> Usuarios</a></li>
         <li><a href="zapatos.php"><svg class="glyph filo package"><use xlink:href="#filo-package"></use></svg> Zapatos</a></li>
         <li><a href="tipo.php"><svg class="glyph filo golf-flag"><use xlink:href="#filo-golf-flag"></use></svg> Tipo</a></li>
-        <li><a href="marca.php"><svg class="glyph filo blank-tag"><use xlink:href="#filo-blank-tag"></use></svg> Marca</a></li>
+        <li><a href="marca.php"><svg class="glyph filo blank-tag"><use xlink:href="#filo-blank-tag"></use></svg> Marca</a></li>-->
   			<!--<li class="parent ">
   				<a href="#">
   					<span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> Dropdown

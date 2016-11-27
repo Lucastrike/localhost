@@ -68,41 +68,43 @@ $(document).ready(function(){
 
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Usuarios</h1>
+				<h1 class="page-header">Zapatos</h1>
 			</div>
 		</div><!--/.row-->
 
 
 		<div class="col-md-12">
 			<div class="panel panel-default">
-				<div class="panel-heading">Usuarios</div>
+				<div class="panel-heading">Zapatos</div>
 				<div class="panel-body">
 					<table data-toggle="table">
 							<thead>
 							<tr>
 									<th>ID</th>
-									<th>User</th>
-									<th>Name</th>
-									<th>Lastname</th>
-									<th>Password</th>
+									<th>Tipo</th>
+									<th>Marca</th>
+									<th>Modelo</th>
+									<th>Precio</th>
+									<th>Descripcion</th>
 									<th></th>
 							</tr>
 							</thead>
 							<tbody>
 								<?php
-								$tableUser = "SELECT * FROM usuarios";
+								$tableUser = "SELECT * FROM zapatos";
 								$userQuery = mysqli_query($connection, $tableUser);
 								while ($row = mysqli_fetch_array($userQuery)) {
 									?>
 									<tr>
-										<td><?php echo $row['id_usuario']; ?></td>
-										<td><?php echo $row['usuario']; ?></td>
-										<td><?php echo $row['nombre']; ?></td>
-										<td><?php echo $row['apellido']; ?></td>
-										<td><?php echo $row['password']; ?></td>
+										<td><?php echo $row['codigo']; ?></td>
+										<td><?php echo $row['tipo']; ?></td>
+										<td><?php echo $row['marca']; ?></td>
+										<td><?php echo $row['modelo']; ?></td>
+										<td><?php echo $row['precio']; ?></td>
+										<td><?php echo $row['descripcion']; ?></td>
 										<td>
 											<button class="btn btn-warning botonrellenar" data-toggle="modal" data-target="#myModal" type="button" name="button">Modify</button>
-											<a href="edit_user.php?funcion=delete&id=<?php echo $row['id_usuario'];?>" class="btn btn-danger" type="button" name="deleteId">Delete</a>
+											<a href="edit_zapatos.php?funcion=delete&id=<?php echo $row['codigo'];?>" class="btn btn-danger" type="button" name="deleteId">Delete</a>
 										</td>
 									</tr>
 									<?php } ?>
@@ -121,13 +123,30 @@ $(document).ready(function(){
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		        <h4 class="modal-title" id="myModalLabel">Edit users</h4>
 		      </div>
-					<form action="edit_user.php" method="post">
+					<form action="edit_zapatos.php" method="post">
 		      <div class="modal-body">
-							<input type="text" class="form-control" id="editId" name="editId" placeholder="User" readonly>
-			        <input type="text" class="form-control" id="editUser" name="editUser" placeholder="User">
-							<input type="text" class="form-control" id="editName" name="editName" placeholder="Name">
-							<input type="text" class="form-control" id="editLast" name="editLast" placeholder="Lastname">
-							<input type="text" class="form-control" id="editPass" name="editPass" placeholder="Password">
+							<input type="text" class="form-control" id="editId" name="editId" placeholder="Id" readonly>
+              <select class="form-control" name="editTipo" id="editUser">
+                <?php
+                  $selectTipo = "SELECT * FROM tipo";
+                  $querySelectTipo = mysqli_query($connection,$selectTipo);
+                  while ($tipo=mysqli_fetch_array($querySelectTipo)) {
+                ?>
+                <option><?php echo $tipo['tipo']; ?></option>
+                <?php } ?>
+              </select>
+              <select class="form-control" name="editMarca" id="editName">
+                <?php
+                  $selectMarca = "SELECT * FROM marca";
+                  $querySelectMarca = mysqli_query($connection,$selectMarca);
+                  while ($marca=mysqli_fetch_array($querySelectMarca)) {
+                ?>
+                <option><?php echo $marca['marca']; ?></option>
+                <?php } ?>
+              </select>
+							<input type="text" class="form-control" id="editLast" name="editModelo" placeholder="Modelo">
+							<input type="text" class="form-control" id="editPass" name="editPrecio" placeholder="Precio">
+							<input type="text" class="form-control" id="editPass" name="editDescripcion" placeholder="Descripcion">
 		      </div>
 		      <div class="modal-footer">
 		        <button type="submit" class="btn btn-primary">Save changes</button>

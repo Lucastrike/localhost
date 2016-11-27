@@ -35,20 +35,12 @@
 $(document).ready(function(){
 
 	$("table").on("click", ".botonrellenar", function() {
-		var id = $(this).parent().prev().prev().prev().prev().prev().html();
+
+		var id = $(this).parent().prev().prev().html();
 		$("#editId").val(id);
 
-		var user = $(this).parent().prev().prev().prev().prev().html();
-		$("#editUser").val(user);
-
-		var name = $(this).parent().prev().prev().prev().html();
-		$("#editName").val(name);
-
-		var lastName = $(this).parent().prev().prev().html();
-		$("#editLast").val(lastName);
-
-		var pass = $(this).parent().prev().html();
-		$("#editPass").val(pass);
+		var tipo = $(this).parent().prev().html();
+		$("#editTipo").val(tipo);
 	});
 
 });
@@ -68,41 +60,35 @@ $(document).ready(function(){
 
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Usuarios</h1>
+				<h1 class="page-header">Tipo</h1>
 			</div>
 		</div><!--/.row-->
 
 
 		<div class="col-md-12">
 			<div class="panel panel-default">
-				<div class="panel-heading">Usuarios</div>
+				<div class="panel-heading">Tipo</div>
 				<div class="panel-body">
 					<table data-toggle="table">
 							<thead>
 							<tr>
 									<th>ID</th>
-									<th>User</th>
-									<th>Name</th>
-									<th>Lastname</th>
-									<th>Password</th>
+									<th>Tipo</th>
 									<th></th>
 							</tr>
 							</thead>
 							<tbody>
 								<?php
-								$tableUser = "SELECT * FROM usuarios";
-								$userQuery = mysqli_query($connection, $tableUser);
-								while ($row = mysqli_fetch_array($userQuery)) {
+								$tableTipo = "SELECT * FROM tipo";
+								$tipoQuery = mysqli_query($connection, $tableTipo);
+								while ($row = mysqli_fetch_array($tipoQuery)) {
 									?>
 									<tr>
-										<td><?php echo $row['id_usuario']; ?></td>
-										<td><?php echo $row['usuario']; ?></td>
-										<td><?php echo $row['nombre']; ?></td>
-										<td><?php echo $row['apellido']; ?></td>
-										<td><?php echo $row['password']; ?></td>
+										<td><?php echo $row['codigo']; ?></td>
+										<td><?php echo $row['tipo']; ?></td>
 										<td>
 											<button class="btn btn-warning botonrellenar" data-toggle="modal" data-target="#myModal" type="button" name="button">Modify</button>
-											<a href="edit_user.php?funcion=delete&id=<?php echo $row['id_usuario'];?>" class="btn btn-danger" type="button" name="deleteId">Delete</a>
+											<a href="edit_tipo.php?funcion=delete&id=<?php echo $row['codigo'];?>" class="btn btn-danger" type="button" name="deleteId">Delete</a>
 										</td>
 									</tr>
 									<?php } ?>
@@ -119,15 +105,12 @@ $(document).ready(function(){
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="myModalLabel">Edit users</h4>
+		        <h4 class="modal-title" id="myModalLabel">Edit tipo</h4>
 		      </div>
-					<form action="edit_user.php" method="post">
+					<form action="edit_tipo.php" method="post">
 		      <div class="modal-body">
 							<input type="text" class="form-control" id="editId" name="editId" placeholder="User" readonly>
-			        <input type="text" class="form-control" id="editUser" name="editUser" placeholder="User">
-							<input type="text" class="form-control" id="editName" name="editName" placeholder="Name">
-							<input type="text" class="form-control" id="editLast" name="editLast" placeholder="Lastname">
-							<input type="text" class="form-control" id="editPass" name="editPass" placeholder="Password">
+			        <input type="text" class="form-control" id="editTipo" name="editTipo" placeholder="User">
 		      </div>
 		      <div class="modal-footer">
 		        <button type="submit" class="btn btn-primary">Save changes</button>
