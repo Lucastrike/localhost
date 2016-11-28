@@ -91,17 +91,22 @@ $(document).ready(function(){
 							</thead>
 							<tbody>
 								<?php
-								$tableUser = "SELECT * FROM zapatos";
+								$tableUser = "SELECT zapatos.codigo, tipo.tipo, marca.marca, zapatos.modelo, zapatos.precio, zapatos.descripcion
+															FROM `zapatos`
+															JOIN tipo
+															ON zapatos.tipo = tipo.codigo
+															JOIN marca
+															ON zapatos.marca = marca.codigo";
 								$userQuery = mysqli_query($connection, $tableUser);
 								while ($row = mysqli_fetch_array($userQuery)) {
 									?>
 									<tr>
-										<td><?php echo $row['codigo']; ?></td>
-										<td><?php echo $row['tipo']; ?></td>
-										<td><?php echo $row['marca']; ?></td>
-										<td><?php echo $row['modelo']; ?></td>
-										<td><?php echo $row['precio']; ?></td>
-										<td><?php echo $row['descripcion']; ?></td>
+										<td><?php echo $row[0]; ?></td>
+										<td><?php echo $row[1]; ?></td>
+										<td><?php echo $row[2]; ?></td>
+										<td><?php echo $row[3]; ?></td>
+										<td><?php echo $row[4]; ?></td>
+										<td><?php echo $row[5]; ?></td>
 										<td>
 											<button class="btn btn-warning botonrellenar" data-toggle="modal" data-target="#myModal" type="button" name="button">Modify</button>
 											<a href="edit_zapatos.php?funcion=delete&id=<?php echo $row['codigo'];?>" class="btn btn-danger" type="button" name="deleteId">Delete</a>

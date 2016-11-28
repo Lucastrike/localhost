@@ -104,22 +104,26 @@
 <!-- /form -->
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Reestablecer contraseña</h4>
-      </div>
-      <div class="modal-body">
-        <input type="text" class="form-control" id="user" name="user" placeholder="Introduce tu email">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Enviar</button>
+<form action="gestionRecover.php" method="post">
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Reestablecer contraseña</h4>
+        </div>
+        <div class="modal-body">
+          <input type="text" class="form-control" id="user" name="user" placeholder="Introduce tu email">
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+</form>
 
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
