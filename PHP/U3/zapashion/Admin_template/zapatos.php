@@ -54,6 +54,12 @@ $(document).ready(function(){
 });
 </script>
 
+<style media="screen">
+	.new {
+		margin-left: 15px;
+	}
+</style>
+
 </head>
 
 <body>
@@ -72,6 +78,50 @@ $(document).ready(function(){
 			</div>
 		</div><!--/.row-->
 
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-success btn-lg new" data-toggle="modal" data-target="#myModal1">
+			Nuevo zapato
+		</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Insertar nuevo zapato</h4>
+					</div>
+					<form action="insertZapato.php" method="post" id="formSingIn">
+					<div class="modal-body">
+						<select class="form-control" name="tipo" id="editUser">
+							<?php
+								$selectTipo = "SELECT * FROM tipo";
+								$querySelectTipo = mysqli_query($connection,$selectTipo);
+								while ($tipo=mysqli_fetch_array($querySelectTipo)) {
+							?>
+							<option><?php echo $tipo['tipo']; ?></option>
+							<?php } ?>
+						</select>
+						<select class="form-control" name="marca" id="editName">
+							<?php
+								$selectMarca = "SELECT * FROM marca";
+								$querySelectMarca = mysqli_query($connection,$selectMarca);
+								while ($marca=mysqli_fetch_array($querySelectMarca)) {
+							?>
+							<option><?php echo $marca['marca']; ?></option>
+							<?php } ?>
+						</select>
+						<input type="text" class="form-control" name="modelo" placeholder="Modelo">
+						<input type="text" class="form-control" name="precio" placeholder="Precio">
+						<input type="text" class="form-control" name="descripcion" placeholder="Descripcion">
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">Insertar</button>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
 
 		<div class="col-md-12">
 			<div class="panel panel-default">
@@ -149,8 +199,8 @@ $(document).ready(function(){
                 <option><?php echo $marca['marca']; ?></option>
                 <?php } ?>
               </select>
-							<input type="text" class="form-control" id="editLast" name="editModelo" placeholder="Modelo">
-							<input type="text" class="form-control" id="editPass" name="editPrecio" placeholder="Precio">
+							<input type="text" class="form-control" id="editName" name="editModelo" placeholder="Modelo">
+							<input type="text" class="form-control" id="editLast" name="editPrecio" placeholder="Precio">
 							<input type="text" class="form-control" id="editPass" name="editDescripcion" placeholder="Descripcion">
 		      </div>
 		      <div class="modal-footer">

@@ -11,12 +11,8 @@
   while ($row = mysqli_fetch_array($userQuery)) {
       if($row['usuario'] == $user){
         $email_message = "Clicka en la siguiente url para reestablecer la contraseña ";
-        mail($user, "Reestablecer contraseña", $email_message."http...blablabla".$user);
+        mail($user, "Reestablecer contraseña", $email_message."http://lucassalinas.com.es/php/tema3/zapashion/recover.php".$user);
         header("location: index.php");
-
-      }
-      else {
-        echo "string no entra";
       }
   }
 

@@ -54,6 +54,12 @@ $(document).ready(function(){
 });
 </script>
 
+<style media="screen">
+	.new {
+		margin-left: 15px;
+	}
+</style>
+
 </head>
 
 <body>
@@ -72,6 +78,33 @@ $(document).ready(function(){
 			</div>
 		</div><!--/.row-->
 
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-success btn-lg new" data-toggle="modal" data-target="#myModal1">
+			Nuevo usuario
+		</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Insertar nuevo usuario</h4>
+					</div>
+					<form action="insertUser.php" method="post" id="formSingIn">
+					<div class="modal-body">
+						<input type="text" class="form-control" name="firstName" placeholder="Name">
+						<input type="text" class="form-control" name="lastName" placeholder="Lastname">
+						<input type="text" class="form-control" name="email" placeholder="email">
+						<input type="text" class="form-control" name="password" placeholder="password">
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">Insertar</button>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
 
 		<div class="col-md-12">
 			<div class="panel panel-default">

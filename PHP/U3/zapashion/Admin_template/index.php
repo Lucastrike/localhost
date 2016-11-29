@@ -16,7 +16,6 @@
             margin-top: -10px;
           }
         </style>
-        <script type="text/javascript" src="js/login_Google.js"></script>
         <script src='https://www.google.com/recaptcha/api.js'></script>
 
     </head>
