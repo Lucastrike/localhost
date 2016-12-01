@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Solvam File Manager</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <style type="text/css">
+  	body{
+  		background-color: #FDFDFD;
+  	}
+
+  	#box{
+  		width: 600px;
+  		height: 300px;
+  		margin: 0 auto;
+  		border: 1px solid black;
+  		background-color: #FFFFFF;
+  		position: relative;
+  	}
+    .trash{
+      width: 110px;
+      height: 130px;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background-image: url(img/trash_empty.png);
+      background-size: cover;
+    }
+    .word{
+      width: 100px;
+      height: 110px;
+      position: absolute;
+      background-image: url(img/icon1.png);
+      background-size: cover;
+    }
+    .pdf{
+      width: 100px;
+      height: 110px;
+      position: absolute;
+      background-image: url(img/icon2.png);
+      background-size: cover;
+      margin-left: 120px;
+    }
+    .btn{
+      margin-top: 10px;
+    }
+  </style>
+
+</head>
+<body>
+
+<div id="box">
+
+  <div class="trash"></div>
+  <div class="word"></div>
+  <div class="pdf"></div>
+
+</div>
+<button type="button" class="btn btn-warning col-xs-2 col-xs-offset-4" name="button" data-toggle="modal" data-target="#myModal">Remove All</button>
+
+<!-- Modal -->
+<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Remove confirmation</h4>
+      </div>
+      <div class="modal-body">
+        Are you fucking sure?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">No man!</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="yes">Yes bro!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="js/manager.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>
