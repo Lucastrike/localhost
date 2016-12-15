@@ -3,3 +3,4 @@ $mailer = new AttachMailer("mariluz@solvam.net", "server@sadf.ss", "mail sender 
 $mailer->attachFile("a.pdf");
 $mailer->attachFile("a.pdf");
 $mailer->send() ? "envoye": "probleme envoi";
+?>
