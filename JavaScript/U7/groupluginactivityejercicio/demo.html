@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GIF Player demo!</title>
+    <!-- jQuery -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <!-- css associated -->
+    <link rel="stylesheet" type="text/css" href="gifplayer/dist/gifplayer.css">
+    <!-- js archive associated -->
+    <script type="text/javascript" src="gifplayer/dist/jquery.gifplayer.js"></script>
+  </head>
+  <body>
+    <img class="gifplayer" src="img/funnygifexample.jpg"  data-gif="img/funnygifexample.gif" alt="noel"/>
+    <img class="gifplayer" src="img/funnygifexample.jpg"  data-playon="hover" alt="noel"/>
+    <script type="text/javascript">
+      $('.gifplayer').gifplayer();
+    </script>
+  </body>
+</html>
