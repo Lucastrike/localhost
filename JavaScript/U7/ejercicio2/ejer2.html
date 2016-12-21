@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AJAX</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <style media="screen">
+      body {
+        background-color: #478c94;
+      }
+
+      form {
+        margin-left: 550px;
+        margin-top: 100px;
+      }
+      form input {
+        padding: 15px;
+        margin: 10px;
+      }
+      p {
+        margin-left: 550px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <form class="" action="index.html" method="post" name="registro">
+      <input type="text" id="username" name="user" value="" placeholder="UserName"><br />
+      <input type="password" id="passwd" name="pass" value=""placeholder="Password"><br />
+      <input type="password" id="condirmpwd" name="conpass" value=""placeholder="Confirm Password"><br />
+      <input type="email" id="email" name="email" value="" placeholder="Email"><br />
+      <select name="region" id="region">
+      </select>
+      <select name="city" id="city">
+      </select>
+      <br />
+      <input type="button" id="send" name="name" value="Send">
+    </form>
+    <p id="perror"></p>
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/ejer2.js"></script>
+  </body>
+</html>
