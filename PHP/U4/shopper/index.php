@@ -1,4 +1,4 @@
-
+<?php include('connection.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -67,16 +67,27 @@
 									<div class="carousel-inner">
 										<div class="active item">
 											<ul class="thumbnails">
+
+												<?php
+													$query = mysqli_query($connection, "SELECT marca.marca, descripcion, precio FROM `zapatos` JOIN marca ON zapatos.marca=marca.codigo LIMIT 4;");
+													while ($fila = mysqli_fetch_array($query)) {
+												 ?>
+
 												<li class="span3">
 													<div class="product-box">
 														<span class="sale_tag"></span>
 														<p><a href="product_detail.php"><img src="themes/images/ladies/1.jpg" alt="" /></a></p>
-														<a href="product_detail.php" class="title">Ut wisi enim ad</a><br/>
-														<a href="products.php" class="category">Commodo consequat</a>
-														<p class="price">$17.25</p>
+														<a href="product_detail.php" class="title"><?php echo $fila[0]; ?></a><br/>
+														<a href="products.php" class="category"><?php echo $fila[1]; ?></a>
+														<p class="price"><?php echo $fila[2]; ?></p>
 													</div>
 												</li>
-												<li class="span3">
+
+												<?php
+													}
+												 ?>
+
+												<!--<li class="span3">
 													<div class="product-box">
 														<span class="sale_tag"></span>
 														<p><a href="product_detail.php"><img src="themes/images/ladies/2.jpg" alt="" /></a></p>
@@ -100,7 +111,7 @@
 														<a href="products.php" class="category">World once</a>
 														<p class="price">$31.45</p>
 													</div>
-												</li>
+												</li>-->
 											</ul>
 										</div>
 										<div class="item">
@@ -264,25 +275,25 @@
 				</div>
 			</section>
 			<section class="our_client">
-				<h4 class="title"><span class="text">Manufactures</span></h4>
+				<h4 class="title"><span class="text">Marcas</span></h4>
 				<div class="row">
 					<div class="span2">
-						<a href="#"><img alt="" src="themes/images/clients/14.png"></a>
+						<a href="#"><img alt="" src="themes/images/clients/ck.png"></a>
 					</div>
 					<div class="span2">
-						<a href="#"><img alt="" src="themes/images/clients/35.png"></a>
+						<a href="#"><img alt="" src="themes/images/clients/clarks.png"></a>
 					</div>
 					<div class="span2">
-						<a href="#"><img alt="" src="themes/images/clients/1.png"></a>
+						<a href="#"><img alt="" src="themes/images/clients/converse.png"></a>
 					</div>
 					<div class="span2">
-						<a href="#"><img alt="" src="themes/images/clients/2.png"></a>
+						<a href="#"><img alt="" src="themes/images/clients/lacoste.png"></a>
 					</div>
 					<div class="span2">
-						<a href="#"><img alt="" src="themes/images/clients/3.png"></a>
+						<a href="#"><img alt="" src="themes/images/clients/guess.png"></a>
 					</div>
 					<div class="span2">
-						<a href="#"><img alt="" src="themes/images/clients/4.png"></a>
+						<a href="#"><img alt="" src="themes/images/clients/menbur.png"></a>
 					</div>
 				</div>
 			</section>
@@ -291,11 +302,11 @@
 					<div class="span3">
 						<h4>Navigation</h4>
 						<ul class="nav">
-							<li><a href="./index.php">Homepage</a></li>
-							<li><a href="./about.html">About Us</a></li>
-							<li><a href="./contact.php">Contac Us</a></li>
-							<li><a href="./cart.php">Your Cart</a></li>
-							<li><a href="./register.php">Login</a></li>
+							<li><a href="">Homepage</a></li>
+							<li><a href="about.html">About Us</a></li>
+							<li><a href="contact.php">Contac Us</a></li>
+							<li><a href="cart.php">Your Cart</a></li>
+							<li><a href="register.php">Login</a></li>
 						</ul>
 					</div>
 					<div class="span4">
@@ -309,7 +320,7 @@
 					</div>
 					<div class="span5">
 						<p class="logo"><img src="themes/images/logo.png" class="site_logo" alt=""></p>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. the  Lorem Ipsum has been the industry's standard dummy text ever since the you.</p>
+						<p>Zapatos para mujer buenos bonitos y baratos.</p>
 						<br/>
 						<span class="social_icons">
 							<a class="facebook" href="#">Facebook</a>
@@ -321,7 +332,7 @@
 				</div>
 			</section>
 			<section id="copyright">
-				<span>Copyright 2013 bootstrappage template  All right reserved.</span>
+				<span>Copyright 2016 lucassalinas.com.es All right reserved.</span>
 			</section>
 		</div>
 		<script src="themes/js/common.js"></script>
