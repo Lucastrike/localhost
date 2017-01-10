@@ -2,36 +2,29 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Bootstrap E-commerce Templates</title>
+		<title>Rophsion || Tienda online</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
-		<!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
-		<!-- bootstrap -->
+
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 		<link href="themes/css/bootstrappage.css" rel="stylesheet"/>
 
-		<!-- global styles -->
 		<link href="themes/css/flexslider.css" rel="stylesheet"/>
 		<link href="themes/css/main.css" rel="stylesheet"/>
 
-		<!-- scripts -->
 		<script src="themes/js/jquery-1.7.2.min.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
 		<script src="themes/js/superfish.js"></script>
 		<script src="themes/js/jquery.scrolltotop.js"></script>
-		<!--[if lt IE 9]>
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-			<script src="js/respond.min.js"></script>
-		<![endif]-->
 	</head>
     <body>
-			<?php include('menuLogin.php'); ?>
+      <?php include('menuLogin.php'); ?>
 		<div id="wrapper" class="container">
 			<?php include('menu.php'); ?>
 			<section class="header_text sub">
 			<img class="pageBanner" src="themes/images/pageBanner.png" alt="New products" >
-				<h4><span>Login or Regsiter</span></h4>
+				<h4><span>Login or Register</span></h4>
 			</section>
 			<section class="main-content">
 				<div class="row">
@@ -43,13 +36,13 @@
 								<div class="control-group">
 									<label class="control-label">Username</label>
 									<div class="controls">
-										<input type="text" placeholder="Enter your username" id="username" class="input-xlarge">
+										<input type="text" placeholder="Enter your username" id="usernameLogin" class="input-xlarge">
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">Username</label>
 									<div class="controls">
-										<input type="password" placeholder="Enter your password" id="password" class="input-xlarge">
+										<input type="password" placeholder="Enter your password" id="passwordLogin" class="input-xlarge">
 									</div>
 								</div>
 								<div class="control-group">
@@ -62,31 +55,31 @@
 					</div>
 					<div class="span7">
 						<h4 class="title"><span class="text"><strong>Register</strong> Form</span></h4>
-						<form action="#" method="post" class="form-stacked">
+						<form action="#" method="post" class="form-stacked" id="insertForm">
 							<fieldset>
 								<div class="control-group">
 									<label class="control-label">Username</label>
 									<div class="controls">
-										<input type="text" placeholder="Enter your username" class="input-xlarge">
+										<input type="text" placeholder="Usuario" class="input-xlarge" name="username" id="username">
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">Email address:</label>
 									<div class="controls">
-										<input type="password" placeholder="Enter your email" class="input-xlarge">
+										<input type="email" placeholder="email" class="input-xlarge" name="email" id="email">
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">Password:</label>
 									<div class="controls">
-										<input type="password" placeholder="Enter your password" class="input-xlarge">
+										<input type="password" placeholder="contraseña" class="input-xlarge" name="password" id="password">
 									</div>
 								</div>
 								<div class="control-group">
 									<p>Now that we know who you are. I'm not a mistake! In a comic, you know how you can tell who the arch-villain's going to be?</p>
 								</div>
 								<hr>
-								<div class="actions"><input tabindex="9" class="btn btn-inverse large" type="submit" value="Create your account"></div>
+								<div class="actions"><input tabindex="9" class="btn btn-inverse large" id="submit" type="button" value="Registrar"></div>
 							</fieldset>
 						</form>
 					</div>
@@ -97,11 +90,10 @@
 					<div class="span3">
 						<h4>Navigation</h4>
 						<ul class="nav">
-							<li><a href="./index.php">Homepage</a></li>
-							<li><a href="./about.php">About Us</a></li>
-							<li><a href="./contact.php">Contac Us</a></li>
-							<li><a href="./cart.php">Your Cart</a></li>
-							<li><a href="./register.php">Login</a></li>
+							<li><a href="../index.html">Homepage</a></li>
+							<li><a href="contact.php">Contac Us</a></li>
+							<li><a href="cart.php">Your Cart</a></li>
+							<li><a href="register.html">Login</a></li>
 						</ul>
 					</div>
 					<div class="span4">
@@ -131,6 +123,7 @@
 			</section>
 		</div>
 		<script src="themes/js/common.js"></script>
+		<script src="register.js"></script>
 		<script>
 			$(document).ready(function() {
 				$('#checkout').click(function (e) {
