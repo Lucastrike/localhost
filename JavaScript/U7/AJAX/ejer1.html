@@ -11,13 +11,62 @@
     <select name="cities" id="selectcities"></select>
     <br>
     <br>
-    <textarea name="text" rows="1" cols="10" id="text"></textarea>
+    <input name="text" rows="1" cols="10" id="text"></input>
+    <input type="button" name="name" value="Update" id="update">
   </form>
 
   <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 
   <script>
-    $(document).ready(function() {
+
+  $(document).ready(function() {
+
+      $.ajax("getregions.php", function(data){
+        $("#selectregion").html(data);
+        $.ajax("getcities.php",{
+          region: $("#selectregion").val()
+        }, function(response){
+          $("#selectcities").html(response);
+          }
+        );
+      }
+    );
+
+      $("#selectregion").on('change', function(){
+        $.ajax("getcities.php",{
+          region: $("#selectregion").val()
+        }, function(response){
+          $("#selectcities").html(response);
+          }
+        );
+      });
+
+      $("#selectcities").on('change', function(){
+        $("#text").val($("#selectcities option>selected").html());
+      });
+
+      $("#selectcities").on('click', function(){
+        var city = $("#selectcities").val();
+        $("#text").val(city);
+      });
+
+      $("#update").on('click', function(){
+        $.ajax("insertCity.php",{
+          input: $("#text").val(),
+          city: $("#selectcities").val(),
+          id: $("#selectregion").val()
+        }, function(response){
+          $("#selectcities").html(response);
+        }
+      );
+      });
+
+
+});
+
+  </script>
+  <script>
+    /*$(document).ready(function() {
 
         $.get("getregions.php", function(data){
           $("#selectregion").html(data);
@@ -27,7 +76,6 @@
             $("#selectcities").html(response);
             }
           );
-
         }
       );
 
@@ -44,7 +92,24 @@
           $("#text").val($("#selectcities option>selected").html());
         });
 
-  });
+        $("#selectcities").on('click', function(){
+          var city = $("#selectcities").val();
+          $("#text").val(city);
+        });
+
+        $("#update").on('click', function(){
+          $.post("insertCity.php",{
+            input: $("#text").val(),
+            city: $("#selectcities").val(),
+            id: $("#selectregion").val()
+          }, function(response){
+            $("#selectcities").html(response);
+          }
+        );
+        });
+
+
+  });*/
 
   </script>
 
