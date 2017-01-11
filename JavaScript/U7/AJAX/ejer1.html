@@ -21,28 +21,41 @@
 
   $(document).ready(function() {
 
-      $.ajax("getregions.php", function(data){
-        $("#selectregion").html(data);
-        $.ajax("getcities.php",{
-          region: $("#selectregion").val()
-        }, function(response){
-          $("#selectcities").html(response);
-          }
-        );
-      }
-    );
+    var data = $("form").serialize();
 
-      $("#selectregion").on('change', function(){
-        $.ajax("getcities.php",{
-          region: $("#selectregion").val()
-        }, function(response){
-          $("#selectcities").html(response);
+    $.ajax({
+      type: 'GET',
+      url: 'getregions.php',
+      success: function(data){
+        $("#selectregion").html(data);
+        $.ajax({
+          type: 'GET',
+          url: 'getcities.php',
+          data: data,
+          success: function(response){
+            $("#selectcities").html(response);
           }
-        );
+        });
+      }
+      /*beforeSend: function(){
+        $("<p>Updating...</p>").insertAfter("#update");
+      }*/
+    });
+
+
+    $("#selectregion").on('change', function(){
+      $.ajax({
+        type: 'POST',
+        url: 'getcities.php',
+        data: data,
+        success: function(response){
+          $("#selectcities").html(response);
+        }
       });
+    });
 
       $("#selectcities").on('change', function(){
-        $("#text").val($("#selectcities option>selected").html());
+        $("#text").val($("#selectcities option:selected").html());
       });
 
       $("#selectcities").on('click', function(){
@@ -51,17 +64,15 @@
       });
 
       $("#update").on('click', function(){
-        $.ajax("insertCity.php",{
-          input: $("#text").val(),
-          city: $("#selectcities").val(),
-          id: $("#selectregion").val()
-        }, function(response){
-          $("#selectcities").html(response);
-        }
-      );
+        $.ajax({
+          type: 'POST',
+          url: 'insertCity.php',
+          data: data,
+          success: function(response){
+            $("#selectcities").html(response);
+          }
+         });
       });
-
-
 });
 
   </script>
