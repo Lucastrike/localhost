@@ -3,6 +3,14 @@
 <html>
 <head>
   <title>Ejer1</title>
+  <style media="screen">
+    p {
+      color: green;
+    }
+    p.updating{
+      color: orange;
+    }
+  </style>
 </head>
 <body>
 
@@ -11,7 +19,7 @@
     <select name="cities" id="selectcities"></select>
     <br>
     <br>
-    <input name="text" rows="1" cols="10" id="text"></input>
+    <input name="city" rows="1" cols="10" id="text"></input>
     <input type="button" name="name" value="Update" id="update">
   </form>
 
@@ -21,7 +29,6 @@
 
   $(document).ready(function() {
 
-    var data = $("form").serialize();
 
     $.ajax({
       type: 'GET',
@@ -31,7 +38,7 @@
         $.ajax({
           type: 'GET',
           url: 'getcities.php',
-          data: data,
+          data: $("form").serialize(),
           success: function(response){
             $("#selectcities").html(response);
           }
@@ -47,7 +54,7 @@
       $.ajax({
         type: 'POST',
         url: 'getcities.php',
-        data: data,
+        data: $("form").serialize(),
         success: function(response){
           $("#selectcities").html(response);
         }
@@ -64,12 +71,22 @@
       });
 
       $("#update").on('click', function(){
+        var city = $("#text").val();
         $.ajax({
           type: 'POST',
           url: 'insertCity.php',
-          data: data,
+          data: $("form").serialize(),
           success: function(response){
             $("#selectcities").html(response);
+            $("#selectcities option[value='"+city+"']").attr("selected", "true");
+            $("<p>City updated!</p>").css("display", "inline-block").insertAfter("#update");
+            $("p.updating").hide();
+          },
+          beforeSend: function(){
+            $("<p class='updating'>Updating...</p>").css("display", "inline-block").insertAfter("#update");
+          },
+          complete: function(){
+
           }
          });
       });

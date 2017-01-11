@@ -6,9 +6,9 @@ ini_set("display_errors", "1");
 
 include ("connection.php");
 
-$input = $_POST["input"];
-$id_region = $_POST["id"];
-$city = $_POST["city"];
+$input = $_POST["city"];
+$id_region = $_POST["region"];
+$city = $_POST["cities"];
 
 echo $id_region;
 
