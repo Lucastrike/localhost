@@ -72,7 +72,7 @@
     $("#selectregion").on('change', function(){
       $("#barContainer").hide();
       $.ajax({
-        type: 'POST',
+        type: 'GET',
         url: 'getcities.php',
         data: $("form").serialize(),
         success: function(response){
