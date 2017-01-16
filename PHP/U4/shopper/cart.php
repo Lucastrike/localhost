@@ -1,3 +1,9 @@
+<?php
+error_reporting(E_ALL);
+ini_set("display_errors", "1");
+
+include('connection.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -49,6 +55,11 @@
 								</tr>
 							</thead>
 							<tbody>
+
+								<?php
+								 	$id=$_GET["id"];
+									echo $id;
+		 						?>
 								<tr>
 									<td><input type="checkbox" value="option1"></td>
 									<td><a href="product_detail.php"><img alt="" src="themes/images/ladies/9.jpg"></a></td>

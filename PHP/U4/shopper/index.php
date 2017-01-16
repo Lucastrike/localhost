@@ -1,4 +1,9 @@
-<?php include('connection.php'); ?>
+<?php
+error_reporting(E_ALL);
+ini_set("display_errors", "1");
+
+include('connection.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -69,16 +74,16 @@
 											<ul class="thumbnails">
 
 												<?php
-													$query = mysqli_query($connection, "SELECT marca.marca, descripcion, precio FROM `zapatos` JOIN marca ON zapatos.marca=marca.codigo LIMIT 4;");
+													$query = mysqli_query($connection, "SELECT marca.marca, descripcion, precio, zapatos.codigo, zapatos.foto FROM `zapatos` JOIN marca ON zapatos.marca=marca.codigo LIMIT 4;");
 													while ($fila = mysqli_fetch_array($query)) {
 												 ?>
 
 												<li class="span3">
 													<div class="product-box">
 														<span class="sale_tag"></span>
-														<p><a href="product_detail.php"><img src="themes/images/ladies/1.jpg" alt="" /></a></p>
-														<a href="product_detail.php" class="title"><?php echo $fila[0]; ?></a><br/>
-														<a href="products.php" class="category"><?php echo $fila[1]; ?></a>
+														<p><a href="product_detail.php?id=<?php echo $fila[3]; ?>"><img src="<?php echo $fila[4]; ?>" alt="" /></a></p>
+														<a class="title"><?php echo $fila[0]; ?></a><br/>
+														<a class="category"><?php echo $fila[1]; ?></a>
 														<p class="price"><?php echo $fila[2]; ?></p>
 													</div>
 												</li>
