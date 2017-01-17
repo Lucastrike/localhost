@@ -30,17 +30,50 @@ $(document).ready(function() {
 
     //============= COMPROBACION SERVIDOR ================
 
-if (f1 == true && f2 == true && f3 == true) {
-  $.post("insertar.php",{
-    username: $("#username").val(),
-    email: $("#email").val(),
-    password: $("#password").val()
-  }, function(response){
-    alert(response);
+    if (f1 == true && f2 == true && f3 == true) {
+      $.post("insertar.php",{
+        username: $("#username").val(),
+        email: $("#email").val(),
+        password: $("#password").val()
+      }, function(response){
+        alert(response);
+        }
+      );
     }
-  );
-}
-
   });
+
+
+    //============== COMPROBACION USUARIO ================
+
+    $("#submitLogin").on('click', function(){
+      var usernameLogin = $("#usernameLogin").val();
+      var passwordLogin = $("#passwordLogin").val();
+
+      var g1, g2 = false;
+      if (usernameLogin == "") {
+        $("#usernameLogin").css("border","1px solid red");
+      } else {
+        $("#usernameLogin").css("border","1px solid green");
+        g1 = true;
+      }
+
+      if (passwordLogin == "") {
+        $("#passwordLogin").css("border","1px solid red");
+      } else {
+        $("#passwordLogin").css("border","1px solid green");
+        g2 = true;
+      }
+
+      //____________________
+      if (g1 == true && g2 == true) {
+        $.post("login.php",{
+          usernameLogin: $("#username").val(),
+          passwordLogin: $("#email").val()
+        }, function(response){
+          alert(response);
+          }
+        );
+      }
+    });
 
 });

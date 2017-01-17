@@ -17,5 +17,4 @@ if (mysqli_num_rows($query) == 0) {
 } else {
   echo " Usuario ya existente";
 }
-
  ?>

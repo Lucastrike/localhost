@@ -56,17 +56,38 @@ include('connection.php');
 							</div>
 							<div class="span5">
 								<address>
-									<strong>Marca:</strong> <span><?php echo $fila[0]; ?></span><br>
-									<strong>Tipo:</strong> <span><?php echo $fila[1]; ?></span><br>
+									<strong>Marca:</strong> <span id="marca"><?php echo $fila[0]; ?></span><br>
+									<strong>Tipo:</strong> <span id="tipo"><?php echo $fila[1]; ?></span><br>
 								</address>
-								<h4><strong>Price: <?php echo $fila[2]; ?>€</strong></h4>
+								<h4><strong id="precio">Price: <?php echo $fila[2]; ?>€</strong></h4>
 							</div>
 							<div class="span5">
 								<form action="cart.php?id=<?php echo $id ?>" class="form-inline">
 									<p>&nbsp;</p>
 									<label>Cantidad:</label>
-									<input type="text" class="span1" placeholder="1">
+									<input type="text" class="span1" placeholder="1" id="cantidad">
 									<button class="btn btn-inverse" type="submit">Añadir al carrito</button>
+									<script type="text/javascript">
+									$.ajax({
+										type: 'GET',
+										url: 'getcarrito.php',
+										$("#marca").val(),
+										$("#tipo").val(),
+										$("#precio").val(),
+										$("#cantidad").val()
+										success: function(response){
+											/*$("#marca").html(response);
+											$.ajax({
+												type: 'GET',
+												url: 'getcities.php',
+												data: $("form").serialize(),
+												success: function(response){
+													$("#selectcities").html(response);
+												}
+											});*/
+										}
+									});
+									</script>
 								</form>
 							</div>
 							<?php } ?>
