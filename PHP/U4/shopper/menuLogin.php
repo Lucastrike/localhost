@@ -12,6 +12,8 @@
           <li><a href="cart.php">Your Cart</a></li>
           <li><a href="checkout.php">Checkout</a></li>
           <li><a href="register.php">Login</a></li>
+          <li><a href="close_session.php">Logout</a></li>
+          <li><a href="Admin_template/index.php">Admin</a></li>
         </ul>
       </div>
     </div>

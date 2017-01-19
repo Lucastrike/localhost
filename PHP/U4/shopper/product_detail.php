@@ -2,7 +2,6 @@
 error_reporting(E_ALL);
 ini_set("display_errors", "1");
 
-session_start();
 include('connection.php');
 ?>
 <!DOCTYPE html>
@@ -64,7 +63,7 @@ include('connection.php');
 							</div>
 							<div class="span5">
 									<p>&nbsp;</p>
-									<a href="cart.php" class="btn btn-inverse <?php if (!$_SESSION['loggedin']){echo 'disabled';} ?>" type="submit" id="añadir">Añadir al carrito</a>
+									<a href="cart.php" class="btn btn-inverse" type="submit" id="añadir">Añadir al carrito</a>
 							</div>
 							<?php } ?>
 						</div>
@@ -96,21 +95,26 @@ include('connection.php');
 					<div class="span3 col">
 						<div class="block">
 							<ul class="nav nav-list">
-								<li class="nav-header">SUB CATEGORIES</li>
-								<li><a href="products.php">Nullam semper elementum</a></li>
-								<li class="active"><a href="products.php">Phasellus ultricies</a></li>
-								<li><a href="products.php">Donec laoreet dui</a></li>
-								<li><a href="products.php">Nullam semper elementum</a></li>
-								<li><a href="products.php">Phasellus ultricies</a></li>
-								<li><a href="products.php">Donec laoreet dui</a></li>
+						 		<li class="nav-header">SUB CATEGORIES</li>
+								<?php
+									$query = mysqli_query($connection, "SELECT * FROM `tipo`;");
+									while ($fila = mysqli_fetch_array($query)) {
+								 ?>
+								<li><a href="products.php"><?php echo $fila[1]; ?></a></li>
+								<?php
+									}
+								 ?>
 							</ul>
 							<br/>
 							<ul class="nav nav-list below">
-								<li class="nav-header">MANUFACTURES</li>
-								<li><a href="products.php">Adidas</a></li>
-								<li><a href="products.php">Nike</a></li>
-								<li><a href="products.php">Dunlop</a></li>
-								<li><a href="products.php">Yamaha</a></li>
+								<li class="nav-header">MANUFACTURES</li><?php
+									$query = mysqli_query($connection, "SELECT * FROM `marca`;");
+									while ($fila = mysqli_fetch_array($query)) {
+								 ?>
+								<li><a href="products.php"><?php echo $fila[1]; ?></a></li>
+								<?php
+									}
+								 ?>
 							</ul>
 						</div>
 					</div>

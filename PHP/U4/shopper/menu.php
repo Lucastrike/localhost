@@ -17,8 +17,6 @@
             <li><a href="./products.php">Tipo</a></li>
           </ul>
         </li>
-        <li><a href="./products.php">Hangbag</a></li>
-        <li><a href="./products.php">Best Seller</a></li>
         <li><a href="./products.php">Top Seller</a></li>
       </ul>
     </nav>
