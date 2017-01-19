@@ -9,16 +9,14 @@ $usernameLogin = $_POST["usernameLogin"];
 $passwordLogin = $_POST["passwordLogin"];
 $passw = md5($passwordLogin);
 
-$query = mysqli_query($connection,"SELECT * FROM usuario_tienda;");
+$query  = mysqli_query($connection, "SELECT * FROM usuario_tienda WHERE email='$usernameLogin' AND password='$passwordLogin';");
 
-while ($fila = mysqli_fetch_array($query)) {
-  if ($usernameLogin == $fila['email'] && $passw == $fila['password']) {
-    $_SESSION['usuario']=$email;
-    echo " Bienvenido"." ".$usernameLogin;
-  } else {
-    //echo " No cuela, registrate!";
-    echo $passw;
-  }
+if (mysqli_fetch_array($query)) {
+  $_SESSION['usuario']=$usernameLogin;
+  $_SESSION['loggedin']=true;
+  echo " Bienvenido ".$usernameLogin;
+} else {
+  echo " No cuela, registrate!";
 }
 
  ?>

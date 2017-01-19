@@ -67,8 +67,8 @@ $(document).ready(function() {
       //____________________
       if (g1 == true && g2 == true) {
         $.post("login.php",{
-          usernameLogin: $("#username").val(),
-          passwordLogin: $("#email").val()
+          usernameLogin: $("#usernameLogin").val(),
+          passwordLogin: $("#passwordLogin").val()
         }, function(response){
           alert(response);
           }
