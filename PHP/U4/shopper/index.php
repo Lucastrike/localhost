@@ -2,6 +2,11 @@
 error_reporting(E_ALL);
 ini_set("display_errors", "1");
 
+include('check_active_session.php');
+if (is_null($_SESSION['usuario'])) {
+  $_SESSION['loggedin']=false;
+}
+
 include('connection.php');
 ?>
 <!DOCTYPE html>
@@ -96,7 +101,7 @@ include('connection.php');
 										<div class="item">
 											<ul class="thumbnails">
 												<?php
-													$query = mysqli_query($connection, "SELECT marca.marca, descripcion, precio, zapatos.codigo, zapatos.foto FROM `zapatos` JOIN marca ON zapatos.marca=marca.codigo LIMIT 4;");
+													$query = mysqli_query($connection, "SELECT marca.marca, descripcion, precio, zapatos.codigo, zapatos.foto FROM `zapatos` JOIN marca ON zapatos.marca=marca.codigo WHERE zapatos.codigo>=6 LIMIT 4;");
 													while ($fila = mysqli_fetch_array($query)) {
 												 ?>
 

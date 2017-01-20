@@ -2,7 +2,7 @@
 
 //$array = ['Marca' => Seat, 'Modelo' => Leon, 'Año' => 2007];
 
-$array = [
+/*$array = [
   [
     'Marca'=>Seat,
     'Modelo'=>Leon,
@@ -15,8 +15,18 @@ $array = [
     'Marca'=>Opel,
     'Modelo'=>Astra,
   ]
-];
+];*/
 
-echo json_encode($array);
+include('connection.php');
+
+$arrayjson=array();
+$contador=0;
+$query = mysqli_query($connection, "SELECT * FROM `zapatos`;");
+while ($fila = mysqli_fetch_assoc($query)) {
+  $arrayjson[$contador]=$fila;
+  $contador++;
+}
+
+echo json_encode($arrayjson);
 
  ?>

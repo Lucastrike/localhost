@@ -2,6 +2,7 @@
 error_reporting(E_ALL);
 ini_set("display_errors", "1");
 
+include('check_active_session.php');
 include('connection.php');
 ?>
 <!DOCTYPE html>

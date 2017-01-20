@@ -2,6 +2,7 @@
 error_reporting(E_ALL);
 ini_set("display_errors", "1");
 
+include('check_active_session.php');
 include('connection.php');
 ?>
 <!DOCTYPE html>
@@ -47,49 +48,52 @@ include('connection.php');
 
 						<div class="row">
 							<?php
+
 								$id=$_GET["id"];
 								$query=mysqli_query($connection, "SELECT marca.marca, descripcion, precio, zapatos.foto FROM `zapatos` JOIN marca ON zapatos.marca=marca.codigo WHERE zapatos.codigo=$id;");
 								while ($fila=mysqli_fetch_array($query)) {
 							 ?>
 							<div class="span4">
-								<a href="<?php echo $fila[3]; ?>" class="thumbnail" data-fancybox-group="group1" title="Description 1"><img alt="" src="<?php echo $fila[3]; ?>"></a>
+								<a href="<?php echo $fila[3]; ?>" class="thumbnail" data-fancybox-group="group1" title="Description 1"><img alt="" src="<?php echo $fila[3]; ?>" id="img"></a>
 							</div>
 							<div class="span5">
 								<address>
 									<strong>Marca:</strong> <span id="marca"><?php echo $fila[0]; ?></span><br>
-									<strong>Tipo:</strong> <span id="tipo"><?php echo $fila[1]; ?></span><br>
+									<strong>Tipo:</strong> <span id="tipo" data="<?php echo $_SESSION['userID'];?>"><?php echo $fila[1]; ?></span><br>
 								</address>
-								<h4><strong id="precio">Price: <?php echo $fila[2]; ?>€</strong></h4>
+								<h4><strong>Price: <span id="precio"><?php echo $fila[2]; ?></span>€</strong></h4>
 							</div>
 							<div class="span5">
 									<p>&nbsp;</p>
-									<a href="cart.php" class="btn btn-inverse" type="submit" id="añadir">Añadir al carrito</a>
+									<a <?php if($_SESSION['loggedin']==false){echo "href='register.php'";} ?> class="btn btn-inverse" type="submit" id="añadir">Añadir al carrito</a>
+									<script type="text/javascript">
+
+									$("#añadir").on('click', function(){
+										var img = $("#img").attr("src");
+										var marca = $("#marca").html();
+										var tipo = $("#tipo").html();
+										var codigo_usuario = $("#tipo").attr("data");
+										var precio = $("#precio").html();
+
+									$.ajax({
+										type: 'POST',
+										url: 'getcarrito.php',
+										data: {
+											img:img,
+											marca:marca,
+											tipo:tipo,
+											precio:precio,
+											codigo_usuario:codigo_usuario
+										},
+										success: function(response){
+											window.location.href = "cart.php";
+										}
+									});
+								});
+									</script>
 							</div>
 							<?php } ?>
 						</div>
-						<script type="text/javascript">
-
-						$("#añadir").on('click', function(){
-						});
-						$.ajax({
-							type: 'GET',
-							url: 'getcarrito.php',
-							$("#marca").val(),
-							$("#tipo").val(),
-							$("#precio").val()
-							success: function(response){
-								/*$("#marca").html(response);
-								$.ajax({
-									type: 'GET',
-									url: 'getcities.php',
-									data: $("form").serialize(),
-									success: function(response){
-										$("#selectcities").html(response);
-									}
-								});*/
-							}
-						});
-						</script>
 
 					</div>
 					<div class="span3 col">
