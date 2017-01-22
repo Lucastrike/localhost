@@ -1,18 +1,18 @@
 (function() {
 	var $menu = $('#menu ul');
 	$('.navbar.main-menu').after('<div class="_toggleMenu"><a class="toggleMenu" href="#">- MENU -</a><ul class="nav"></ul></div>');
-	$('._toggleMenu .nav').html($menu.php());
+	//$('._toggleMenu .nav').html($menu.php());
 })();
 
 var ww = document.body.clientWidth;
 
-$(document).ready(function() {		
+$(document).ready(function() {
 	$("._toggleMenu .nav li a").each(function() {
-		if ($(this).next().length > 0) {			
+		if ($(this).next().length > 0) {
 			$(this).addClass("parent");
 		};
 	})
-	
+
 	$("._toggleMenu .toggleMenu").click(function(e) {
 		e.preventDefault();
 		$(this).toggleClass("active");
@@ -40,7 +40,7 @@ var adjustMenu = function() {
 			e.preventDefault();
 			$(this).parent("li").toggleClass("hover");
 		});
-	} 
+	}
 	else if (ww >= 767) {
 		$("._toggleMenu").css("display", "none");
 		$("._toggleMenu .nav").show();
@@ -54,9 +54,9 @@ var adjustMenu = function() {
 }
 
 //Menu
-$('#menu > ul').superfish({ 
-	delay:       100,                           
-	animation:   {opacity:'show', height:'show'}, 
+$('#menu > ul').superfish({
+	delay:       100,
+	animation:   {opacity:'show', height:'show'},
 	speed:       'fast',
 	arrowClass: false,
 	autoArrows:  true

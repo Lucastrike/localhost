@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set("display_errors", "1");
+//error_reporting(E_ALL);
+//ini_set("display_errors", "1");
 
 include('check_active_session.php');
 include('connection.php');
@@ -9,7 +9,7 @@ include('connection.php');
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Bootstrap E-commerce Templates</title>
+		<title>Zapashion</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
@@ -62,7 +62,8 @@ include('connection.php');
 									$codigo_usuario = $_SESSION['userID'];
 
 									$query = mysqli_query($connection, "SELECT * FROM `cesta_temporal` WHERE codigo_usuario=$codigo_usuario;");
-									while ($fila = mysqli_fetch_array($query)) {
+									if ($_SESSION['loggedin']==true) {
+										while ($fila = mysqli_fetch_array($query)) {
 		 						?>
 								<tr>
 									<td><button id="borrar" class="btn btn-warning">Borrar</button></td>
@@ -72,16 +73,67 @@ include('connection.php');
 									<td><?php echo $fila[3]; ?></td>
 								</tr>
 								<?php
+										}
 									}
 								 ?>
 							</tbody>
 						</table>
-						<hr/>
-						<p class="buttons center">
-							<button class="btn" type="button">Update</button>
-							<button class="btn" type="button">Continue</button>
-							<button class="btn btn-inverse" type="submit" id="checkout">Checkout</button>
+						<hr>
+						<p class="cart-total right">
+							<?php
+								if ($_SESSION['loggedin']==true) {
+									$query = mysqli_query($connection,"SELECT precio FROM `cesta_temporal`");
+									while ($fila = mysqli_fetch_array($query)) {
+										$total = $total + $fila[0];
+									}
+									$coniva = $total + ($total * 0.21);
+								}
+							 ?>
+							<strong>Precio: </strong><span id="total"><?php echo $total; ?></span>€<br />
+							<strong>IVA</strong>: 21%<br>
+							<strong>Total IVA incluido: </strong><span id="coniva"> <?php echo $coniva; ?></span>€<br />
 						</p>
+						<hr/>
+						<span id="idcliente" data="<?php echo $codigo_usuario; ?>"></span>
+						<p class="buttons center">
+							<button class="btn btn-inverse" type="submit" id="comprar">Comprar</button>
+						</p>
+						<script type="text/javascript">
+						$("document").ready(function(){
+							$("#comprar").on("click",function(){
+								var total = $("#total").html();
+								var coniva = $("#coniva").html();
+								var idcliente = $("#idcliente").attr("data");
+
+								$.ajax({
+												type: "POST",
+												url: "comprar.php",
+												data: {
+													total: total,
+													coniva: coniva,
+													idcliente: idcliente
+												},
+												success: function(data) {
+														alert(data);
+												}
+										});
+							});
+
+							$("borrar").on('click', function(){
+
+								$.ajax({
+												type: "POST",
+												url: "borrar.php",
+												data: {
+													idcliente: idcliente
+												},
+												success: function(data) {
+														alert(data);
+												}
+										});
+							});
+						});
+						</script>
 					</div>
 					<div class="span3 col">
 						<div class="block">
@@ -148,43 +200,7 @@ include('connection.php');
 					</div>
 				</div>
 			</section>
-			<section id="footer-bar">
-				<div class="row">
-					<div class="span3">
-						<h4>Navigation</h4>
-						<ul class="nav">
-							<li><a href="./index.php">Homepage</a></li>
-							<li><a href="./about.html">About Us</a></li>
-							<li><a href="./contact.php">Contac Us</a></li>
-							<li><a href="./cart.php">Your Cart</a></li>
-							<li><a href="./register.php">Login</a></li>
-						</ul>
-					</div>
-					<div class="span4">
-						<h4>My Account</h4>
-						<ul class="nav">
-							<li><a href="#">My Account</a></li>
-							<li><a href="#">Order History</a></li>
-							<li><a href="#">Wish List</a></li>
-							<li><a href="#">Newsletter</a></li>
-						</ul>
-					</div>
-					<div class="span5">
-						<p class="logo"><img src="themes/images/logo.png" class="site_logo" alt=""></p>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. the  Lorem Ipsum has been the industry's standard dummy text ever since the you.</p>
-						<br/>
-						<span class="social_icons">
-							<a class="facebook" href="#">Facebook</a>
-							<a class="twitter" href="#">Twitter</a>
-							<a class="skype" href="#">Skype</a>
-							<a class="vimeo" href="#">Vimeo</a>
-						</span>
-					</div>
-				</div>
-			</section>
-			<section id="copyright">
-				<span>Copyright 2013 bootstrappage template  All right reserved.</span>
-			</section>
+			<?php include('footer.php'); ?>
 		</div>
 		<script src="themes/js/common.js"></script>
 		<script>

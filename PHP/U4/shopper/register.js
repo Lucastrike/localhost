@@ -65,12 +65,20 @@ $(document).ready(function() {
       }
 
       //____________________
+
+      var codigo_producto = $("#usernameLogin").attr("data");
+
       if (g1 == true && g2 == true) {
         $.post("login.php",{
           usernameLogin: $("#usernameLogin").val(),
           passwordLogin: $("#passwordLogin").val()
         }, function(response){
-          alert(response);
+              if (!codigo_producto=="") {
+              window.location.href = "product_detail.php?id="+codigo_producto;
+            } else {
+              window.location.href = "index.php";
+            }
+            alert(response);
           }
         );
       }

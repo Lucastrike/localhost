@@ -1,15 +1,18 @@
 <?php
-error_reporting(E_ALL);
-ini_set("display_errors", "1");
+/*error_reporting(E_ALL);
+ini_set("display_errors", "1");*/
 
 include('check_active_session.php');
 include('connection.php');
+
+	$id=$_GET["id"];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Rophsion || Tienda online</title>
+		<title>Zapashion</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 
@@ -43,7 +46,7 @@ include('connection.php');
 								<div class="control-group">
 									<label class="control-label">Username</label>
 									<div class="controls">
-										<input type="text" placeholder="Enter your username" id="usernameLogin" class="input-xlarge">
+										<input type="text" placeholder="Enter your username" id="usernameLogin" data="<?php echo $id; ?>" class="input-xlarge">
 									</div>
 								</div>
 								<div class="control-group">
@@ -92,42 +95,7 @@ include('connection.php');
 					</div>
 				</div>
 			</section>
-			<section id="footer-bar">
-				<div class="row">
-					<div class="span3">
-						<h4>Navigation</h4>
-						<ul class="nav">
-							<li><a href="../index.html">Homepage</a></li>
-							<li><a href="contact.php">Contac Us</a></li>
-							<li><a href="cart.php">Your Cart</a></li>
-							<li><a href="register.html">Login</a></li>
-						</ul>
-					</div>
-					<div class="span4">
-						<h4>My Account</h4>
-						<ul class="nav">
-							<li><a href="#">My Account</a></li>
-							<li><a href="#">Order History</a></li>
-							<li><a href="#">Wish List</a></li>
-							<li><a href="#">Newsletter</a></li>
-						</ul>
-					</div>
-					<div class="span5">
-						<p class="logo"><img src="themes/images/logo.png" class="site_logo" alt=""></p>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. the  Lorem Ipsum has been the industry's standard dummy text ever since the you.</p>
-						<br/>
-						<span class="social_icons">
-							<a class="facebook" href="#">Facebook</a>
-							<a class="twitter" href="#">Twitter</a>
-							<a class="skype" href="#">Skype</a>
-							<a class="vimeo" href="#">Vimeo</a>
-						</span>
-					</div>
-				</div>
-			</section>
-			<section id="copyright">
-				<span>Copyright 2013 bootstrappage template  All right reserved.</span>
-			</section>
+			<?php include('footer.php'); ?>
 		</div>
 		<script src="themes/js/common.js"></script>
 		<script src="register.js"></script>

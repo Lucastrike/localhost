@@ -7,8 +7,8 @@
 body {
     font-size: 12px;
     font-family: 'Open Sans', arial, tahoma, sans-serif;
-    /*background:url(../images/bg.png) repeat 0 0 fixed;*/
-    background-color: rgba(19, 35, 47, 0.9);
+    /*background:url(../images/bg.png) repeat 0 0 fixed;
+    background-color: rgba(19, 35, 47, 0.9);*/
 }
 
 label,
@@ -112,7 +112,7 @@ section#copyright {
 }
 
 section.header_text {
-    background: url(../images/bg_h.png) no-repeat bottom;
+    /*background: url(../images/bg_h.png) no-repeat bottom;*/
     text-align: center;
     padding: 15px 0 20px 0;
     font-size: 16px;
@@ -265,7 +265,7 @@ section#footer-bar a:hover {
 }
 
 section#footer-bar .nav a {
-    background: url(../images/trigger_right.png) no-repeat 5px 7px;
+    /*background: url(../images/trigger_right.png) no-repeat 5px 7px;*/
 }
 
 section#footer-bar h4 {
@@ -827,7 +827,7 @@ section.our_client .row {
 }
 
 .block h4 {
-    background: url(../images/bg_h.png) no-repeat bottom left;
+    /*background: url(../images/bg_h.png) no-repeat bottom left;*/
     margin: 0 0 20px 0;
     border-bottom: 1px solid #eee;
 }
@@ -840,7 +840,7 @@ section.our_client .row {
 
 .nav-header {
     color: #333;
-    background: url(../images/bg_h.png) no-repeat bottom left;
+    /*background: url(../images/bg_h.png) no-repeat bottom left;*/
     margin-bottom: 10px;
 }
 
@@ -849,7 +849,7 @@ section.our_client .row {
 }
 
 .nav-list li a {
-    background: url(../images/trigger_right.png) transparent no-repeat 5px 8px;
+    /*background: url(../images/trigger_right.png) transparent no-repeat 5px 8px;*/
 }
 
 .nav-list > .active > a,

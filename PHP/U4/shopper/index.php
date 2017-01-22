@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set("display_errors", "1");
+/*error_reporting(E_ALL);
+ini_set("display_errors", "1");*/
 
 include('check_active_session.php');
 if (is_null($_SESSION['usuario'])) {
@@ -13,7 +13,7 @@ include('connection.php');
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Bootstrap E-commerce Templates</title>
+		<title>Zapashion</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
@@ -160,62 +160,32 @@ include('connection.php');
 				<h4 class="title"><span class="text">Marcas</span></h4>
 				<div class="row">
 					<div class="span2">
-						<a href="#"><img alt="" src="themes/images/clients/ck.png"></a>
+					    <img alt="" src="themes/images/clients/ck.png">
 					</div>
 					<div class="span2">
-						<a href="#"><img alt="" src="themes/images/clients/clarks.png"></a>
+					    <img alt="" src="themes/images/clients/clarks.png">
 					</div>
 					<div class="span2">
-						<a href="#"><img alt="" src="themes/images/clients/converse.png"></a>
+					    <img alt="" src="themes/images/clients/converse.png">
 					</div>
 					<div class="span2">
-						<a href="#"><img alt="" src="themes/images/clients/lacoste.png"></a>
+					    <img alt="" src="themes/images/clients/lacoste.png">
 					</div>
 					<div class="span2">
-						<a href="#"><img alt="" src="themes/images/clients/guess.png"></a>
+					    <img alt="" src="themes/images/clients/guess.png">
 					</div>
 					<div class="span2">
-						<a href="#"><img alt="" src="themes/images/clients/menbur.png"></a>
+					    <img alt="" src="themes/images/clients/menbur.png">
 					</div>
 				</div>
+        <style media="screen">
+          .span2 img {
+            width: 100%;
+            height: 100px;
+          }
+        </style>
 			</section>
-			<section id="footer-bar">
-				<div class="row">
-					<div class="span3">
-						<h4>Navigation</h4>
-						<ul class="nav">
-							<li><a href="">Homepage</a></li>
-							<li><a href="about.html">About Us</a></li>
-							<li><a href="contact.php">Contac Us</a></li>
-							<li><a href="cart.php">Your Cart</a></li>
-							<li><a href="register.php">Login</a></li>
-						</ul>
-					</div>
-					<div class="span4">
-						<h4>My Account</h4>
-						<ul class="nav">
-							<li><a href="#">My Account</a></li>
-							<li><a href="#">Order History</a></li>
-							<li><a href="#">Wish List</a></li>
-							<li><a href="#">Newsletter</a></li>
-						</ul>
-					</div>
-					<div class="span5">
-						<p class="logo"><img src="themes/images/logo.png" class="site_logo" alt=""></p>
-						<p>Zapatos para mujer buenos bonitos y baratos.</p>
-						<br/>
-						<span class="social_icons">
-							<a class="facebook" href="#">Facebook</a>
-							<a class="twitter" href="#">Twitter</a>
-							<a class="skype" href="#">Skype</a>
-							<a class="vimeo" href="#">Vimeo</a>
-						</span>
-					</div>
-				</div>
-			</section>
-			<section id="copyright">
-				<span>Copyright 2016 lucassalinas.com.es All right reserved.</span>
-			</section>
+			<?php include('footer.php'); ?>
 		</div>
 		<script src="themes/js/common.js"></script>
 		<script src="themes/js/jquery.flexslider-min.js"></script>
