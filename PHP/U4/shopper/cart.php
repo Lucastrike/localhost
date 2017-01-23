@@ -150,7 +150,8 @@ include('connection.php');
 							</ul>
 							<br/>
 							<ul class="nav nav-list below">
-								<li class="nav-header">MANUFACTURES</li><?php
+								<li class="nav-header">MANUFACTURES</li>
+								<?php
 									$query = mysqli_query($connection, "SELECT * FROM `marca`;");
 									while ($fila = mysqli_fetch_array($query)) {
 								 ?>

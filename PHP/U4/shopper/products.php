@@ -137,32 +137,25 @@ include('connection.php');
 							<ul class="nav nav-list">
 								<li class="nav-header">Subcategorias</li>
 								<!--<li class="active"><a href="products.php">Phasellus ultricies</a></li>-->
-								<?php  ?>
-								<li><a href="products.php">Bailarinas</a></li>
-								<li><a href="products.php">Botas</a></li>
-								<li><a href="products.php">Botines</a></li>
-								<li><a href="products.php">Zapatillas</a></li>
-								<li><a href="products.php">Zapatillas deportivas</a></li>
-								<li><a href="products.php">Zapatillas outdoor</a></li>
-								<li><a href="products.php">Zapatos altos</a></li>
-								<li><a href="products.php">Zapatos bajos</a></li>
-								<li><a href="products.php">Zapatos con cordones</a></li>
-								<li><a href="products.php">Zapatos de salón</a></li>
+								<?php
+									$query = mysqli_query($connection, "SELECT * FROM `tipo`;");
+									while ($fila = mysqli_fetch_array($query)) {
+								 ?>
+								<li><a href="products.php"><?php echo $fila[1]; ?></a></li>
+								<?php
+									}
+								 ?>
 							</ul>
 							<br/>
 							<ul class="nav nav-list below">
-								<li class="nav-header">MARCAS</li>
-								<li><a href="products.php">Anna Field</a></li>
-								<li><a href="products.php">Bruno Premi</a></li>
-								<li><a href="products.php">Calvin Klein</a></li>
-								<li><a href="products.php">Clarks</a></li>
-								<li><a href="products.php">Converse</a></li>
-								<li><a href="products.php">Even&Odd</a></li>
-								<li><a href="products.php">Guess</a></li>
-								<li><a href="products.php">Lacoste</a></li>
-								<li><a href="products.php">Menbur</a></li>
-								<li><a href="products.php">Pier one</a></li>
-								<li><a href="products.php">Whistles</a></li>
+								<?php
+									$query = mysqli_query($connection, "SELECT * FROM `marca`;");
+									while ($fila = mysqli_fetch_array($query)) {
+								 ?>
+								<li><a href="products.php"><?php echo $fila[1]; ?></a></li>
+								<?php
+									}
+								 ?>
 							</ul>
 						</div>
 						<div class="block">

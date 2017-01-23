@@ -14,6 +14,7 @@ $query = mysqli_query($connection,"SELECT email FROM usuario_tienda WHERE email=
 if (mysqli_num_rows($query) == 0) {
   mysqli_query($connection, "INSERT INTO usuario_tienda (`nombre`, `email`, `password`) VALUES ('$username','$email','$pass');");
   echo " Bienvenido"." ".$username;
+  mkdir("clientes/$username", 0755);
 } else {
   echo " Usuario ya existente";
 }

@@ -1,13 +1,15 @@
 <?php
-/*error_reporting(E_ALL);
-ini_set("display_errors", "1");*/
-
-include('check_active_session.php');
-if (is_null($_SESSION['usuario'])) {
-  $_SESSION['loggedin']=false;
-}
+error_reporting(E_ALL);
+ini_set("display_errors", "1");
 
 include('connection.php');
+include('check_active_session.php');
+
+if (!isset($_SESSION['usuario'])) {
+  $_SESSION['loggedin']=false;
+}
+echo $_SESSION['loggedin']." hola";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

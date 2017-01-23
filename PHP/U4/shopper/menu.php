@@ -10,14 +10,14 @@
     </style>
     <nav id="menu" class="pull-right">
       <ul>
-        <li><a href="./products.php">Woman</a>
+        <li><a>Woman</a>
           <ul>
-            <li><a href="./products.php">Zapatos</a></li>
-            <li><a href="./products.php">Marca</a></li>
-            <li><a href="./products.php">Tipo</a></li>
+            <li><a href="products.php">Zapatos</a></li>
+            <li><a href="products.php">Marca</a></li>
+            <li><a href="products.php">Tipo</a></li>
           </ul>
         </li>
-        <li><a href="./products.php">Top Seller</a></li>
+        <li><a href="products.php">Top Seller</a></li>
       </ul>
     </nav>
   </div>

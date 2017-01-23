@@ -7,7 +7,8 @@ console.log("llamamos");
     dataType: 'json',
     success: function(data){
       console.log(data);
-      console.log("bvg" + data[0].descripcion);
+      //console.log("bvg" + data[0].descripcion);
+      
       //$("#marca").html(data[0].descripcion);
       //$("#modelo").html(data[1].Marca + " " + data[1].Modelo);
       //$("#año").html(data[2].Marca + " " + data[2].Modelo);

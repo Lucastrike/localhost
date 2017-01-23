@@ -18,6 +18,7 @@ if ($fila = mysqli_fetch_array($query)) {
   $_SESSION['loggedin']=true;
   $_SESSION['userID']=$fila[0];
   $_SESSION['usuario']=$usernameLogin;
+  $_SESSION['nombre']=$fila[1];
   echo " (^_^) Bienvenido/a ".$usernameLogin." (^_^)";
 } else {
   echo " (=_=) No cuela, registrate! (=_=)";
