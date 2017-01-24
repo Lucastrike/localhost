@@ -1,5 +1,5 @@
 <?php
-	require('languages.php'); 
+	require('languages.php');
 
 	$lang = null;
 	if ( isset($_GET['lang']) ){
@@ -13,11 +13,11 @@
 <body>
             <ul class="nav">
             <li class="dropdown active">
-                <a href="#"><?php echo __('Inicio', $lang) ?></</a>
+                <a href="#?lang=$lang"><?php echo __('Inicio', $lang) ?></</a>
 			</li>
            <li><a href="#"><?php echo __('Eventos', $lang) ?></</a></li>
            <li><a href="#"><?php echo __('Informacion', $lang) ?></</a></li>
            <li><a href="#"><?php echo __('Contacto', $lang) ?></</a></li>
-            </ul> 
+            </ul>
 </body>
 </html>

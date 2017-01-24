@@ -10,14 +10,14 @@
     </style>
     <nav id="menu" class="pull-right">
       <ul>
-        <li><a>Woman</a>
+        <li><a><?php echo __('Mujer', $lang) ?></a>
           <ul>
             <li><a href="products.php">Zapatos</a></li>
             <li><a href="products.php">Marca</a></li>
             <li><a href="products.php">Tipo</a></li>
           </ul>
         </li>
-        <li><a href="products.php">Top Seller</a></li>
+        <li><a href="products.php"><?php echo __('MAS VENDIDO', $lang) ?></a></li>
       </ul>
     </nav>
   </div>

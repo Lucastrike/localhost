@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set("display_errors", "1");
+//error_reporting(E_ALL);
+//ini_set("display_errors", "1");
 
 include('connection.php');
 include('check_active_session.php');
@@ -8,7 +8,10 @@ include('check_active_session.php');
 if (!isset($_SESSION['usuario'])) {
   $_SESSION['loggedin']=false;
 }
-echo $_SESSION['loggedin']." hola";
+
+if (!isset($_SESSION['lang'])) {
+  $_SESSION['lang'] = "es";
+}
 
 ?>
 <!DOCTYPE html>
@@ -52,7 +55,7 @@ echo $_SESSION['loggedin']." hola";
 						<li>
 							<img src="themes/images/carousel/portada2.jpg" alt="" />
 							<div class="intro">
-								<h1>Mid season sale</h1>
+								<h1><?php echo __('Primavera-Verano', $lang) ?></h1>
 								<p><span>Up to 50% Off</span></p>
 								<p><span>On selected items online and in stores</span></p>
 							</div>

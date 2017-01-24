@@ -66,7 +66,7 @@ include('connection.php');
 										while ($fila = mysqli_fetch_array($query)) {
 		 						?>
 								<tr>
-									<td><button id="borrar" class="btn btn-warning">Borrar</button></td>
+									<td><button id="borrar" class="btn btn-warning Borrar" data="<?php echo $fila[0]; ?>">Borrar</button></td>
 									<td><a href="#"><img alt="" src="<?php echo $fila[4]; ?>"></a></td>
 									<td><?php echo $fila[1]; ?></td>
 									<td><?php echo $fila[2]; ?></td>
@@ -119,18 +119,20 @@ include('connection.php');
 										});
 							});
 
-							$("borrar").on('click', function(){
+							$(".Borrar").on('click', function(){
+								var idCesta = $(this).attr("data");
 
 								$.ajax({
 												type: "POST",
 												url: "borrar.php",
 												data: {
-													idcliente: idcliente
+													idCesta: idCesta
 												},
-												success: function(data) {
-														alert(data);
+												success: function() {
 												}
 										});
+
+								$(this).parent().parent().remove();
 							});
 						});
 						</script>
