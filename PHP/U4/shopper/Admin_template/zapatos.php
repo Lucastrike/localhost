@@ -127,7 +127,7 @@ $(document).ready(function(){
 			<div class="panel panel-default">
 				<div class="panel-heading">Zapatos</div>
 				<div class="panel-body">
-					<table data-toggle="table">
+					<table data-toggle="table" id="example">
 							<thead>
 							<tr>
 									<th>ID</th>
@@ -221,6 +221,9 @@ $(document).ready(function(){
 	<script src="js/easypiechart-data.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/bootstrap-table.js"></script>
+	<!-- FUNCIONES PARA LAS DATATABLES -->
+    <script src="http://cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js"></script>
+    <script src="http://cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 	<script>
 		!function ($) {
 			$(document).on("click","ul.nav li.parent > a > span.icon", function(){
