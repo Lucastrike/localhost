@@ -8,6 +8,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<head>
 		<title>Videos Website Template | singlepage :: W3layouts</title>
 		<link href="css/style.css" rel="stylesheet" type="text/css"  media="all" />
+		<!-- Custom Theme files -->
+		<link href="css/styleModal.css" rel="stylesheet" type="text/css" media="all" />
+		<!-- //Custom Theme files -->
+		<!-- font-awesome icons -->
+		<link href="css/font-awesome.css" rel="stylesheet">
+		<!-- //font-awesome icons -->
+		<!-- web font -->
+		<link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+		<!-- //web font -->
 	</head>
 	<body>
 		<?php include('menu.php'); ?>

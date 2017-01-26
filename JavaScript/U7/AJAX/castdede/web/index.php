@@ -8,6 +8,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<head>
 		<title>Castdede</title>
 		<link href="css/style.css" rel="stylesheet" type="text/css"  media="all" />
+		<!-- Custom Theme files -->
+		<link href="css/styleModal.css" rel="stylesheet" type="text/css" media="all" />
+		<!-- //Custom Theme files -->
+		<!-- font-awesome icons -->
+		<link href="css/font-awesome.css" rel="stylesheet">
+		<!-- //font-awesome icons -->
+		<!-- web font -->
+		<link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+		<!-- //web font -->
+
+		<!--jQuery modal-->
+		<script src="jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="jquery.modal.css" type="text/css" media="screen" />
+
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="js/login.js">
+
+		</script>
 	</head>
 	<body>
 		<?php include('menu.php'); ?>
