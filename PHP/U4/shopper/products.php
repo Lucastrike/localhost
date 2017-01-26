@@ -36,7 +36,7 @@ include('connection.php');
 		<div id="wrapper" class="container">
 			<?php include('menu.php'); ?>
 			<section class="header_text sub">
-			<img class="pageBanner" src="themes/images/pageBanner.png" alt="New products" >
+			<img class="pageBanner" src="themes/images/pageBanner.jpg" alt="New products" >
 				<h4><span>New products</span></h4>
 			</section>
 			<section class="main-content">
@@ -44,81 +44,24 @@ include('connection.php');
 				<div class="row">
 					<div class="span9">
 						<ul class="thumbnails listing-products">
-							<li class="span3">
-								<div class="product-box">
-									<span class="sale_tag"></span>
-									<a href="product_detail.php"><img alt="" src="themes/images/ladies/9.jpg"></a><br/>
-									<a href="product_detail.php" class="title">Fusce id molestie massa</a><br/>
-									<a href="#" class="category">Phasellus consequat</a>
-									<p class="price">$341</p>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="product-box">
-									<a href="product_detail.php"><img alt="" src="themes/images/ladies/8.jpg"></a><br/>
-									<a href="product_detail.php" class="title">Praesent tempor sem</a><br/>
-									<a href="#" class="category">Erat gravida</a>
-									<p class="price">$28</p>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="product-box">
-									<span class="sale_tag"></span>
-									<a href="product_detail.php"><img alt="" src="themes/images/ladies/7.jpg"></a><br/>
-									<a href="product_detail.php" class="title">Wuam ultrices rutrum</a><br/>
-									<a href="#" class="category">Suspendisse aliquet</a>
-									<p class="price">$341</p>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="product-box">
-									<span class="sale_tag"></span>
-									<a href="product_detail.php"><img alt="" src="themes/images/ladies/6.jpg"></a><br/>
-									<a href="product_detail.php" class="title">Praesent tempor sem sodales</a><br/>
-									<a href="#" class="category">Nam imperdiet</a>
-									<p class="price">$49</p>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="product-box">
-									<a href="product_detail.php"><img alt="" src="themes/images/ladies/1.jpg"></a><br/>
-									<a href="product_detail.php" class="title">Fusce id molestie massa</a><br/>
-									<a href="#" class="category">Congue diam congue</a>
-									<p class="price">$35</p>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="product-box">
-									<a href="product_detail.php"><img alt="" src="themes/images/ladies/2.jpg"></a><br/>
-									<a href="product_detail.php" class="title">Tempor sem sodales</a><br/>
-									<a href="#" class="category">Gravida placerat</a>
-									<p class="price">$61</p>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="product-box">
-									<a href="product_detail.php"><img alt="" src="themes/images/ladies/3.jpg"></a><br/>
-									<a href="product_detail.php" class="title">Quam ultrices rutrum</a><br/>
-									<a href="#" class="category">Orci et nisl iaculis</a>
-									<p class="price">$233</p>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="product-box">
-									<a href="product_detail.php"><img alt="" src="themes/images/ladies/4.jpg"></a><br/>
-									<a href="product_detail.php" class="title">Tempor sem sodales</a><br/>
-									<a href="#" class="category">Urna nec lectus mollis</a>
-									<p class="price">$134</p>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="product-box">
-									<a href="product_detail.php"><img alt="" src="themes/images/ladies/5.jpg"></a><br/>
-									<a href="product_detail.php" class="title">Luctus quam ultrices</a><br/>
-									<a href="#" class="category">Suspendisse aliquet</a>
-									<p class="price">$261</p>
-								</div>
-							</li>
+
+							<?php
+								$query = mysqli_query($connection, "SELECT marca.marca, descripcion, precio, zapatos.codigo, zapatos.foto FROM `zapatos` JOIN marca ON zapatos.marca=marca.codigo;");
+								while ($fila = mysqli_fetch_array($query)) {
+							 ?>
+							 <li class="span3">
+ 								<div class="product-box">
+ 									<span class="sale_tag"></span>
+ 									<p><a href="product_detail.php?id=<?php echo $fila[3]; ?>"><img src="<?php echo $fila[4]; ?>" alt="" /></a></p>
+ 									<a class="title"><?php echo $fila[0]; ?></a><br/>
+ 									<a class="category"><?php echo $fila[1]; ?></a>
+ 									<p class="price"><?php echo $fila[2]; ?></p>
+ 								</div>
+ 							</li>
+							<?php
+								}
+							 ?>
+
 						</ul>
 						<hr>
 						<div class="pagination pagination-small pagination-centered">
@@ -131,6 +74,7 @@ include('connection.php');
 								<li><a href="#">Next</a></li>
 							</ul>
 						</div>
+						
 					</div>
 					<div class="span3 col">
 						<div class="block">
