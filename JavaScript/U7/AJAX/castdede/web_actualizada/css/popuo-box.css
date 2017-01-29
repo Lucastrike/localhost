@@ -460,7 +460,7 @@ button::-moz-focus-inner {
   right: -6px;
   text-align: right;
   padding-right: 6px;
-  width: 100%; 
+  width: 100%;
 }
 .signup {
     position: relative;
@@ -501,7 +501,7 @@ button::-moz-focus-inner {
 	background: #EBEBEB;
 	border: solid 1px #222;
 }
-.signup input.email[type="text"],.signup input[type="password"]{
+.signup input.email[type="text"],.signup input.username[type="text"],.signup input[type="password"]{
   width: 90%;
   padding: 10px;
   background: #FFF;
@@ -546,7 +546,7 @@ button::-moz-focus-inner {
   color: #DF2229;
 }
 .button-bottom p a:hover{
-	color:#C7C7C7;	
+	color:#C7C7C7;
 }
 .continue-button a {
     padding: .5em 2em;
@@ -586,7 +586,7 @@ button::-moz-focus-inner {
 	#small-dialog, #small-dialog2 {
 		  max-width: 85% !important;
 	}
-	
+
 }
 @media all and (max-width:991px){
 	.social-sits ul li a {
@@ -746,7 +746,7 @@ button::-moz-focus-inner {
 		padding: 6px;
 		font-size:13px;
 	}
-} 
+}
 .social-sits{
     float: left;
     text-align: left;
@@ -843,7 +843,7 @@ button::-moz-focus-inner {
 	color: ##525254;
 	margin: 1em 0;
 	font-size: 14px;
-	line-height: 1.8em;	
+	line-height: 1.8em;
 	text-align:center;
 }
 .video-information-text ol li{

@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.php"><h1><img src="images/logo.png" alt="" /></h1></a>
+      <a class="navbar-brand" href="index.php"><h1><img src="images/castdedeLogo1.png" alt="" /></h1></a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
   <div class="top-search">
@@ -64,12 +64,23 @@
                   </div>
                 </div>
                 <div class="signup">
-                  <!--<form>-->
+                  <form id="form-singup">
+                    <input id="nameup" type="text" class="username" placeholder="Name" name="name"/>
+                    <input id="emailup" type="text" class="email" placeholder="Email" name="email"/>
+                    <input id="passwordup" type="password" placeholder="Password" name="password"/>
+                    <input id="repasswordup" type="password" placeholder="Confirm password" name="repasswordup"/>
+                    <br>
+                    <!--<input id="nameup" type="text" class="email" placeholder="Name" required="required"/>
                     <input id="emailup" type="text" class="email" placeholder="Email" required="required" pattern="([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?" title="Enter a valid email"/>
-                    <input id="passwordup" type="password" placeholder="Password" required="required" pattern=".{6,}" title="Minimum 6 characters required" autocomplete="off" />
+                    <input id="passwordup" type="password" placeholder="Password" required="required" pattern=".{6,}" title="Minimum 6 characters required" autocomplete="off" />-->
                     <!--<input type="text" class="email" placeholder="Mobile Number" maxlength="10" pattern="[1-9]{1}\d{9}" title="Enter a valid mobile number" />-->
-                    <input id="submitup" type="submit"  value="Sign Up"/>
-                  <!--</form>-->
+                    <input type="submit"  value="Sign Up"/>
+                  </form>
+                  <style media="screen">
+                  form .error {
+                    color: #ff0000;
+                  }
+                  </style>
                 </div>
                 <div class="clearfix"> </div>
               </div>
@@ -128,11 +139,12 @@
           </div>
         </div>
         <div class="signup">
-          <!--<form>-->
-            <input id="emailin" type="text" class="email" placeholder="Enter email" required="required" pattern="([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?"/>
-            <input id="passwordin" type="password" placeholder="Password" required="required" pattern=".{6,}" title="Minimum 6 characters required" autocomplete="off" />
-            <input id="submitin" type="submit"  value="LOGIN"/>
-          <!--</form>-->
+          <form id="form-singin">
+            <input id="emailin" type="text" class="email" name="email" placeholder="Enter email"/>
+            <input id="passwordin" type="password" name="password" placeholder="Password"/>
+            <br>
+            <input type="submit"  value="LOGIN"/>
+          </form>
           <div class="forgot">
             <a href="#">Forgot password ?</a>
           </div>
