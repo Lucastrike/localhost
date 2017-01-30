@@ -47,7 +47,6 @@ function singup(){
         },
         success: function(response){
           //alert("Welcome "+nameup);
-          alert(response);
           $("#nameup").val("");
           $("#emailup").val("");
           $("#passwordup").val("");
@@ -116,7 +115,6 @@ function singin(){
 
   var emailin = $("#emailin").val();
   var passwordin = $("#passwordin").val();
-  alert("email: " + emailin + " " + "password: " + passwordin);
 
   $.ajax({
       type: 'POST',
@@ -129,7 +127,7 @@ function singin(){
         if (response==0) {
           alert("The email doesn't match our database");
         } else {
-          alert("Welcome " + response);
+          //alert("Welcome " + response);
           $('<li><a class="home-icon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Hey '+response+' (^_^)</a></li>').insertBefore("#left-home");
           $("#logout").removeClass("hidden");
           $.magnificPopup.close();

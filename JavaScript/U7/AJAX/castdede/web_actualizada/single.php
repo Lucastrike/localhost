@@ -77,29 +77,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</script>
 							<div class="load_more">
 								<ul id="myList">
-                  <li>
-
-
-                    <div id="puntos"></div>
-                    <script>
-                      $(function() {
-                        $('#puntos').valoraciones({star_tot:10, evento:'hover', star_max:100, star_size:2});
-                      });
-                    </script>
+                  <li class="hidden" id="stars">
 
                     <div id="puntos"></div>
-                    <p>Puntuación: <span></span></p>
-                    <script>
-                    var puntuaciones = function(datos) {
-                      $parrafo=datos.selector.next('p');
-                      $parrafo.children('span').text(datos.valor);
-                    };
-
-                    $(function() {
-                      $('#puntos').valoraciones({star_tot:8, star_max:90, evento:'hover', callback:puntuaciones});
-                    });
-                    </script>
-
+                    <p>Score: <span></span></p>
 
                   </li>
 									<li>
@@ -397,5 +378,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/single.js"></script>
     <script src="js/valoraciones.min.js"></script>
+    <script type="text/javascript" src="js/movie_score.js">
+
+    </script>
   </body>
 </html>

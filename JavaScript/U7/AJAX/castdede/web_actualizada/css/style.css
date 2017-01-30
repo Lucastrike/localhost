@@ -651,6 +651,7 @@ a.btn.btn-primary.btn-lg.see-button.hvr-shutter-out-horizontal {
 }
 .resent-grid-info p.views-info{
     font-size: 12px;
+		display: inherit;
 }
 .slid-bottom-grids{
 	margin: 2em 0 0 0;
