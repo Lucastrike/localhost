@@ -58,15 +58,16 @@ if (localStorage.getItem('option_name')=="All") {
 });
 }
 else if (localStorage.getItem('option_name')=="Favorites") {
+  console.log("lanzamos");
   $.ajax({
       type: 'GET',
-      url: 'php/json_favorites_movies.php',
+      url: 'php/json_get_favorite_movies.php',
       dataType: 'json',
     success: function(data){
       console.log(data);
-      /*for (var i = 0; i < data.length; i++) {
+      for (var i = 0; i < data.length; i++) {
         $('<div data="'+data[i].id+'" class="col-md-3 movie-selected resent-grid recommended-grid movie-video-grid"><div class="resent-grid-img recommended-grid-img"><a href="single.php"><img src="'+data[i].picture+'" alt="" /></a><div class="time small-time show-time movie-time"><p>'+data[i].length+'</p></div><div class="clck movie-clock"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></div></div><div class="resent-grid-info recommended-grid-info recommended-grid-movie-info"><h5><a href="single.php" class="title">'+data[i].title+'</a></h5><ul><li><p class="glyphicon glyphicon-star"></p></li><li class="right-list"><p class="views views-info">'+data[i].year+'</p></li></ul></div></div>').insertAfter("#info");
-      }*/
+      }
 
 
       $("<h3>"+localStorage.getItem('option_name')+"</h3>").prependTo("#selection");

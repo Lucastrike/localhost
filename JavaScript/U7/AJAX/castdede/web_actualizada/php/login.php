@@ -2,8 +2,8 @@
 error_reporting(E_ALL);
 ini_set("display_errors", "1");
 
-session_start();
 include ("connection.php");
+session_start();
 
 $email = $_POST["email"];
 $password = $_POST["password"];

@@ -1,9 +1,6 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
+<?php session_start(); ?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -18,15 +15,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //bootstrap -->
 <link href="css/dashboard.css" rel="stylesheet">
 <!-- Custom Theme files -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="css/style.css" rel='stylesheet' type='text/css' media="all" />
-<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery-1.11.3.min.js"></script>
 <!--start-smoth-scrolling-->
 <!-- fonts -->
 <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 <!-- //fonts -->
 
-<script src="js\jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/check_active_session.js"></script>
+
 </head>
   <body>
 
@@ -78,6 +77,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</script>
 							<div class="load_more">
 								<ul id="myList">
+                  <li>
+
+
+                    <div id="puntos"></div>
+                    <script>
+                      $(function() {
+                        $('#puntos').valoraciones({star_tot:10, evento:'hover', star_max:100, star_size:2});
+                      });
+                    </script>
+
+                    <div id="puntos"></div>
+                    <p>Puntuación: <span></span></p>
+                    <script>
+                    var puntuaciones = function(datos) {
+                      $parrafo=datos.selector.next('p');
+                      $parrafo.children('span').text(datos.valor);
+                    };
+
+                    $(function() {
+                      $('#puntos').valoraciones({star_tot:8, star_max:90, evento:'hover', callback:puntuaciones});
+                    });
+                    </script>
+
+
+                  </li>
 									<li>
 										<h4 id="synopsis">Synopsis</h4>
 									</li>
@@ -372,5 +396,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/single.js"></script>
+    <script src="js/valoraciones.min.js"></script>
   </body>
 </html>

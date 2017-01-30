@@ -18,7 +18,7 @@
   </div>
   <div class="header-top-right">
     <div class="file hidden" id="logout">
-      <a href="upload.html">Logout</a>
+      <a href="php/close_session.php">Logout</a>
     </div>
     <div class="signin">
       <a href="#small-dialog2" class="play-icon popup-with-zoom-anim">Sign Up</a>

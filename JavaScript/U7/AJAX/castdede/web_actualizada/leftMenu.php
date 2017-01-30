@@ -44,7 +44,7 @@
       });
       });
     </script>
-  <li><a href="news.php" class="news-icon"><span class="glyphicon glyphicon-expand" aria-hidden="true"></span>Youtube</a></li>
+  <li><a href="news.php" class="news-icon"><span class="glyphicon glyphicon-expand" aria-hidden="true"></span>Youtubers</a></li>
   </ul>
   <!-- script-for-menu -->
     <script>
