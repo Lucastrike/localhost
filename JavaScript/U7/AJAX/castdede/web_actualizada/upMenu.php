@@ -17,8 +17,8 @@
     </form>
   </div>
   <div class="header-top-right">
-    <div class="file">
-      <a href="upload.html">Upload</a>
+    <div class="file hidden" id="logout">
+      <a href="upload.html">Logout</a>
     </div>
     <div class="signin">
       <a href="#small-dialog2" class="play-icon popup-with-zoom-anim">Sign Up</a>

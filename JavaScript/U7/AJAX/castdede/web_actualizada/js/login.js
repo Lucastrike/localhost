@@ -131,6 +131,7 @@ function singin(){
         } else {
           alert("Welcome " + response);
           $('<li><a class="home-icon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Hey '+response+' (^_^)</a></li>').insertBefore("#left-home");
+          $("#logout").removeClass("hidden");
           $.magnificPopup.close();
         }
         $("#emailin").val("");
