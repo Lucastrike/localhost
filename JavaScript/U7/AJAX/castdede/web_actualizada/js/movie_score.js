@@ -10,7 +10,7 @@ $("document").ready(function() {
     //======================================
 
     var movie_id = localStorage.getItem('selected_movie');
-    var score = localStorage.getItem('score');
+    //var score = localStorage.getItem('score');
 
     $.ajax({
         type: 'POST',
@@ -21,7 +21,7 @@ $("document").ready(function() {
         },
       success: function(data){
         console.log(data);
-        localStorage.setItem('scoreAVG', data);
+        //localStorage.setItem('scoreAVG', data);
 
       },
         error: function(jqXHR, textStatus, errorThrown){
