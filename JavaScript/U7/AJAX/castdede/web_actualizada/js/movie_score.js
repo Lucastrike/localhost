@@ -2,10 +2,62 @@
 $("document").ready(function() {
 
   var puntuaciones = function(datos) {
-    $parrafo=datos.selector.next('p');
-    $parrafo.children('span').text(datos.valor);
+    var parrafo = datos.selector.next('p');
+    parrafo.children('span').text(datos.valor);
 
     localStorage.setItem('score', datos.valor);
+
+    //======================================
+
+    var movie_id = localStorage.getItem('selected_movie');
+    var score = localStorage.getItem('score');
+
+    $.ajax({
+        type: 'POST',
+        url: 'php/set_score.php',
+        data: {
+          movie_id:movie_id,
+          score:score
+        },
+      success: function(data){
+        console.log(data);
+        localStorage.setItem('scoreAVG', data);
+
+      },
+        error: function(jqXHR, textStatus, errorThrown){
+        if (jqXHR.status === 0) {
+
+        alert('Not connect: Verify Network.');
+
+      } else if (jqXHR.status == 404) {
+
+        alert('Requested page not found [404]');
+
+      } else if (jqXHR.status == 500) {
+
+        alert('Internal Server Error [500].');
+
+      } else if (textStatus === 'parsererror') {
+
+        alert('Requested JSON parse failed.');
+
+      } else if (textStatus === 'timeout') {
+
+        alert('Time out error.');
+
+      } else if (textStatus === 'abort') {
+
+        alert('Ajax request aborted.');
+
+      } else {
+
+        alert('Uncaught Error: ' + jqXHR.responseText);
+
+      }
+    }
+
+  });
+
   };
 
   $(function() {
@@ -21,5 +73,6 @@ $("document").ready(function() {
   if (!localStorage.getItem('selected_movie') == "") {
   $("#stars").removeClass("hidden");
   }
+
 
 });
