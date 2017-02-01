@@ -39,7 +39,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 			<div class="show-top-grids">
+
 				<div class="col-sm-10 show-grid-left main-grids">
+          <img src="" alt="">
 					<div class="recommended">
 						<div class="recommended-grids english-grid">
 							<div class="recommended-info" id="info">

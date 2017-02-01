@@ -1,13 +1,12 @@
 <?php
 
 include('connection.php');
+session_start();
 
-$json_movies=array();
-$query = mysqli_query($connection, "SELECT * FROM movies");
-while ($row = mysqli_fetch_assoc($query)) {
-  array_push($json_movies, $row);
-}
+$userID = $_SESSION['userID'];
+$id_movie = $_POST['id_movie'];
 
-echo json_encode($json_movies);
+$query = mysqli_query($connection, "INSERT INTO `lists_movies`(`id_lists`, `id_movies`, `id_users`) VALUES ('8','$id_movie','$userID');");
+
 
  ?>

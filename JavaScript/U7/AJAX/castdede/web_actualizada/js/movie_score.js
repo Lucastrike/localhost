@@ -7,10 +7,13 @@ $("document").ready(function() {
 
     localStorage.setItem('score', datos.valor);
 
-    //======================================
+    setScore();
 
+  };
+
+  function setScore(){
     var movie_id = localStorage.getItem('selected_movie');
-    //var score = localStorage.getItem('score');
+    var score = localStorage.getItem('score');
 
     $.ajax({
         type: 'POST',
@@ -21,7 +24,7 @@ $("document").ready(function() {
         },
       success: function(data){
         console.log(data);
-        //localStorage.setItem('scoreAVG', data);
+        alert(data);
 
       },
         error: function(jqXHR, textStatus, errorThrown){
@@ -57,8 +60,7 @@ $("document").ready(function() {
     }
 
   });
-
-  };
+  }
 
   $(function() {
     $('#puntos').valoraciones({

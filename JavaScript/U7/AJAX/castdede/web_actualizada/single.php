@@ -80,7 +80,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <li class="hidden" id="stars">
 
                     <div id="puntos"></div>
-                    <p>Score: <span></span></p>
+                    <!--<p>Score: <span></span></p>-->
 
                   </li>
 									<li>
