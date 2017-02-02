@@ -16,7 +16,7 @@ $("document").ready(function() {
         console.log(data);
         for (var i = 0; i < data.length; i++) {
           $('<div class="song-info" id="movie"><h3>'+data[i].title+'</h3></div><div class="video-grid"><iframe src="'+data[i].trailer+'" allowfullscreen></iframe></div>').prependTo("#movie");
-          $('<p>'+data[i].synopsis+'</p>').insertAfter("#stars");
+          $('<p>'+data[i].synopsis+'</p><button class="btn btn-info"><a href="'+data[i].link+'" target="_blank">WATCH MOVIE</a></button>').insertAfter("#stars");
         }
 
       },

@@ -45,6 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="recommended">
 						<div class="recommended-grids english-grid">
 							<div class="recommended-info" id="info">
+
 								<div class="heading" id="selection">
 								</div>
 								<!--<div class="heading-right">
@@ -57,10 +58,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 
 				</div>
-        <style media="screen">
-          /*p.makefav{
+        <style media="screen" id="style">
+          p.makefav{
             opacity: .3;
-          }*/
+          }
+          p.makepending{
+            opacity: .3;
+          }
           img.heart {
             position: absolute;
             height: 60%;
@@ -69,6 +73,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             left: 15%;
             top: 15%;
             display: none;
+          }
+          img.deletefav, img.deletepend {
+            position: absolute;
+            width: 30px;
+            padding: 5px;
           }
         </style>
 

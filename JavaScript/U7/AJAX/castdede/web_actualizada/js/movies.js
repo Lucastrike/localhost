@@ -73,7 +73,7 @@ else if (localStorage.getItem('option_name')=="Favorites") {
         if (isNaN(score)) {
           score=0;
         }
-        $('<div data="'+data[i].id+'" class="col-md-3 movie-selected resent-grid recommended-grid movie-video-grid"><div class="resent-grid-img recommended-grid-img"><a href="single.php"><img src="'+data[i].picture+'" alt="" /></a><div class="time small-time show-time movie-time"><p>'+data[i].length+'</p></div><div class="clck movie-clock"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></div></div><div class="resent-grid-info recommended-grid-info recommended-grid-movie-info"><h5><a href="single.php" class="title">'+data[i].title+'</a></h5><ul><li><p class="glyphicon glyphicon-star">'+score+'</p></li><li class="right-list"><p class="glyphicon glyphicon-heart makefav"></p>&nbsp<p class="glyphicon glyphicon-bookmark makepending"></p>&nbsp<p class="views views-info">'+data[i].year+'</p></li></ul></div></div>').insertAfter("#info");
+        $('<div data="'+data[i].id+'" class="col-md-3 movie-selected resent-grid recommended-grid movie-video-grid"><div class="resent-grid-img recommended-grid-img"><img src="images/delete.png" class="deletefav"><a href="single.php"><img src="'+data[i].picture+'" alt="" /></a><div class="time small-time show-time movie-time"><p>'+data[i].length+'</p></div><div class="clck movie-clock"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></div></div><div class="resent-grid-info recommended-grid-info recommended-grid-movie-info"><h5><a href="single.php" class="title">'+data[i].title+'</a></h5><ul><li><p class="glyphicon glyphicon-star">'+score+'</p></li><li class="right-list"><p class="glyphicon glyphicon-heart makefav"></p>&nbsp<p class="glyphicon glyphicon-bookmark makepending"></p>&nbsp<p class="views views-info">'+data[i].year+'</p></li></ul></div></div>').insertAfter("#info");
       }
 
 
@@ -126,7 +126,7 @@ else if (localStorage.getItem('option_name')=="Watch-list") {
         if (isNaN(score)) {
           score=0;
         }
-        $('<div data="'+data[i].id+'" class="col-md-3 movie-selected resent-grid recommended-grid movie-video-grid"><div class="resent-grid-img recommended-grid-img"><a href="single.php"><img src="'+data[i].picture+'" alt="" /></a><div class="time small-time show-time movie-time"><p>'+data[i].length+'</p></div><div class="clck movie-clock"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></div></div><div class="resent-grid-info recommended-grid-info recommended-grid-movie-info"><h5><a href="single.php" class="title">'+data[i].title+'</a></h5><ul><li><p class="glyphicon glyphicon-star">'+score+'</p></li><li class="right-list"><p class="glyphicon glyphicon-heart makefav"></p>&nbsp<p class="glyphicon glyphicon-bookmark makepending"></p>&nbsp<p class="views views-info">'+data[i].year+'</p></li></ul></div></div>').insertAfter("#info");
+        $('<div data="'+data[i].id+'" class="col-md-3 movie-selected resent-grid recommended-grid movie-video-grid"><div class="resent-grid-img recommended-grid-img"><img src="images/delete.png" class="deletepend"><a href="single.php"><img src="'+data[i].picture+'" alt="" /></a><div class="time small-time show-time movie-time"><p>'+data[i].length+'</p></div><div class="clck movie-clock"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></div></div><div class="resent-grid-info recommended-grid-info recommended-grid-movie-info"><h5><a href="single.php" class="title">'+data[i].title+'</a></h5><ul><li><p class="glyphicon glyphicon-star">'+score+'</p></li><li class="right-list"><p class="glyphicon glyphicon-heart makefav"></p>&nbsp<p class="glyphicon glyphicon-bookmark makepending"></p>&nbsp<p class="views views-info">'+data[i].year+'</p></li></ul></div></div>').insertAfter("#info");
       }
 
 
@@ -183,12 +183,9 @@ function movieVariable(){
   // Añadimos a favoritos
 
   $(document).on('click', '.makefav', function(){
-    /*$(this).animate({
+    $(this).animate({
       opacity: 1
-    });*/
-    /*$(".heart").fadeIn( "slow", function() {
-    // Animation complete
-  });*/
+    });
 
     var id_movie = $(this).parent().parent().parent().parent().attr('data');
 
@@ -242,6 +239,9 @@ function movieVariable(){
   // Añadimos a pendientes
 
   $(document).on('click', '.makepending', function(){
+    $(this).animate({
+      opacity: 1
+    });
     var id_movie = $(this).parent().parent().parent().parent().attr('data');
 
     $.ajax({
@@ -288,18 +288,105 @@ function movieVariable(){
   });
   });
 
-  function heartAnimation(){
-    //alert("Added to favorites");
+  // eliminamos pelicula de fav.
 
-    $(".heart").animate({
-      width: "70%",
-      opacity: 0,
-      marginRight: "0.6in",
-      fontSize: "3em",
-      borderWidth: "10px"
-      }, 1500 );
+  $(document).on('click', '.deletefav', function(){
+    var id_movie = $(this).parent().parent().attr('data');
 
-  }
+    $.ajax({
+        type: 'POST',
+        url: 'php/delete_favorites.php',
+        data: {
+          id_movie:id_movie
+        },
+      success: function(data){
+        console.log(data);
+        location.reload();
+
+      },
+        error: function(jqXHR, textStatus, errorThrown){
+        if (jqXHR.status === 0) {
+
+        alert('Not connect: Verify Network.');
+
+      } else if (jqXHR.status == 404) {
+
+        alert('Requested page not found [404]');
+
+      } else if (jqXHR.status == 500) {
+
+        alert('Internal Server Error [500].');
+
+      } else if (textStatus === 'parsererror') {
+
+        alert('Requested JSON parse failed.');
+
+      } else if (textStatus === 'timeout') {
+
+        alert('Time out error.');
+
+      } else if (textStatus === 'abort') {
+
+        alert('Ajax request aborted.');
+
+      } else {
+
+        alert('Uncaught Error: ' + jqXHR.responseText);
+
+      }
+    }
+  });
+  });
+
+  // eliminamos pelicula de pend.
+
+  $(document).on('click', '.deletepend', function(){
+    var id_movie = $(this).parent().parent().attr('data');
+
+    $.ajax({
+        type: 'POST',
+        url: 'php/delete_pending.php',
+        data: {
+          id_movie:id_movie
+        },
+      success: function(data){
+        console.log(data);
+        location.reload();
+
+      },
+        error: function(jqXHR, textStatus, errorThrown){
+        if (jqXHR.status === 0) {
+
+        alert('Not connect: Verify Network.');
+
+      } else if (jqXHR.status == 404) {
+
+        alert('Requested page not found [404]');
+
+      } else if (jqXHR.status == 500) {
+
+        alert('Internal Server Error [500].');
+
+      } else if (textStatus === 'parsererror') {
+
+        alert('Requested JSON parse failed.');
+
+      } else if (textStatus === 'timeout') {
+
+        alert('Time out error.');
+
+      } else if (textStatus === 'abort') {
+
+        alert('Ajax request aborted.');
+
+      } else {
+
+        alert('Uncaught Error: ' + jqXHR.responseText);
+
+      }
+    }
+  });
+  });
 
 
 });
