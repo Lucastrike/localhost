@@ -1,5 +1,10 @@
 
-<?php session_start(); ?>
+<?php
+
+include('connection.php');
+session_start();
+
+?>
 
 <!DOCTYPE HTML>
 <html>
@@ -24,7 +29,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //fonts -->
 
 <script type="text/javascript" src="js/check_active_session.js">
-  
+
 </script>
 </head>
   <body>
@@ -841,8 +846,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
     <!-- Login Jquery -->
     <script type="text/javascript" src="js/login.js"></script>
-    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
   </body>
 </html>

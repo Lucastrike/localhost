@@ -41,7 +41,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="show-top-grids">
 
 				<div class="col-sm-10 show-grid-left main-grids">
-          <img src="" alt="">
+          <img src="images/heart.png" class="heart" alt=""></img>
 					<div class="recommended">
 						<div class="recommended-grids english-grid">
 							<div class="recommended-info" id="info">
@@ -57,6 +57,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 
 				</div>
+        <style media="screen">
+          /*p.makefav{
+            opacity: .3;
+          }*/
+          img.heart {
+            position: absolute;
+            height: 60%;
+            width: 70%;
+            z-index: 10;
+            left: 15%;
+            top: 15%;
+            display: none;
+          }
+        </style>
+
 				<div class="col-md-2 show-grid-right">
 					<h3>Upcoming Channels</h3>
 					<div class="show-right-grids">
@@ -121,5 +136,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/movies.js"></script>
+    <!-- Login Jquery -->
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
   </body>
 </html>

@@ -8,7 +8,7 @@ $("document").ready(function() {
 
 // Primero carga el DOM y luego generamos el contenido correspondiente
 
-if (localStorage.getItem('option_name')=="All") {
+if (localStorage.getItem('option_name')=="All" || localStorage.getItem('option_name')=="") {
   $.ajax({
       type: 'GET',
       url: 'php/json_all_movies.php',
@@ -183,6 +183,13 @@ function movieVariable(){
   // Añadimos a favoritos
 
   $(document).on('click', '.makefav', function(){
+    /*$(this).animate({
+      opacity: 1
+    });*/
+    /*$(".heart").fadeIn( "slow", function() {
+    // Animation complete
+  });*/
+
     var id_movie = $(this).parent().parent().parent().parent().attr('data');
 
     $.ajax({
@@ -282,7 +289,16 @@ function movieVariable(){
   });
 
   function heartAnimation(){
-    
+    //alert("Added to favorites");
+
+    $(".heart").animate({
+      width: "70%",
+      opacity: 0,
+      marginRight: "0.6in",
+      fontSize: "3em",
+      borderWidth: "10px"
+      }, 1500 );
+
   }
 
 
