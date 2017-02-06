@@ -54,6 +54,7 @@ $(document).ready(function(){
 
     var tail = snake_array.pop();//Pops out the last cell
     tail.x = nx;
+    tail.y = ny;
     snake_array.unshift(tail);//Puts back the tail as the first cell
 
     for (var i=0; i<snake_array.length; i++) {
@@ -69,10 +70,10 @@ $(document).ready(function(){
   //Lets add the keyboard controls now
   $(document).keydown(function(e){
     var key = e.which;
-    if (key == "37") d = "left";
-    else if (key == "38") d = "up";
-    else if (key == "39") d = "right";
-    else if (key == "40") d = "down";
+    if (key == "37" && d != "right") d = "left";
+    else if (key == "38" && d != "down") d = "up";
+    else if (key == "39" && d != "left") d = "right";
+    else if (key == "40" && d != "up") d = "down";
   });
 
   //Lets move the snake now using a timer which will trigger the paint function
