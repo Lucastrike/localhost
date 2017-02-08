@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas Example</title>
+	<style> /* Added to show the edge of canvas */
+		canvas { border: 1px solid black; }
+	</style>
+</head>
+<body>
+	<canvas id='canvasElem' width='500' height='480'>Canvas not supported. Update your browser!!!</canvas>
+</body>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	var canvas=$('#canvasElem').get(0);
+	var ctx =  canvas.getContext('2d');
+
+	ctx.fillStyle = "#000";
+
+//Hacer volar una bolsa
+  // 60 frames per second
+//   var dt = 1/60;
+//   var x = 0, y = 400;
+//   var vx = 80, vy = -400;
+//   var ax = 0, ay = 200;
+
+//   function animLoop() {
+//     // Clear the canvas
+//     ctx.clearRect(0,0,canvas.width,canvas.height);
+
+//     // Update the position and velocity
+//     vx += ax * dt;
+//     vy += ay * dt;
+//     x += vx * dt;
+//     y += vy * dt;
+
+//     // Draw a ball
+//     ctx.beginPath();
+//     ctx.arc(x,y,10,0,260);
+//     ctx.fill();
+
+//     // Call set timeout for the next frame
+//     setTimeout(animLoop,dt * 1000);
+// }
+
+//   // Start the loop
+//   animLoop();
+
+//Lanzar la pelota desde el ratón y que rebote en las
+  // 60 frames per second
+//   var dt = 1/60;
+//   var x = 0, y = 390;
+//   var vx = 80, vy = -400;
+//   var ax = 0, ay = 200;
+
+//   var clicked = false;
+
+//   function animLoop() {
+//     // Clear the canvas
+//     ctx.clearRect(0,0,canvas.width,canvas.height);
+
+//     // Update the position and velocity
+//     vx += ax * dt;
+//     vy += ay * dt;
+//     x += vx * dt;
+//     y += vy * dt;
+    
+//     if(x < 10) { x = 10; vx *= -0.8; }
+//     else if(x > canvas.width - 10) { x = canvas.width - 10; vx *= -0.8; }
+    
+//     if(y < 10) { y = 10; vy *= -0.8; }
+//     else if(y > canvas.height - 10) { y = canvas.height - 10; vy *= -0.8; }
+
+//     // Set the alpha based on the velocity
+//     ctx.globalAlpha = Math.sqrt(vx * vx + vy * vy) / 400;
+//     // Draw a ball
+//     ctx.beginPath();
+//     ctx.arc(x,y,10,0,260);
+//     ctx.fill();
+
+//     // Call set timeout for the next frame
+//     setTimeout(animLoop,dt * 1000);
+// }
+
+// $(canvas).on("click",function(e) {
+// 	x = e.offsetX;
+// 	y = e.offsetY;
+// 	vy = -200;
+// 	vx = 80;
+
+// 	if(!clicked) {
+// 		clicked = true;
+// 		animLoop();
+// 	}
+});
+</script>
+</html>

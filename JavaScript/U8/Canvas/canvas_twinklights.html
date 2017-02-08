@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas Example</title>
+	<style> /* Added to show the edge of canvas */
+		canvas { border: 1px solid black; }
+	</style>
+</head>
+<body>
+	<canvas id='canvasElem' width='500' height='480'>Canvas not supported. Update your browser!!!</canvas>
+</body>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	var canvas=$('#canvasElem').get(0);
+	var ctx =  canvas.getContext('2d');
+
+  canvas.style.backgroundColor = "#000";
+  var dt = 1/60;
+
+  // Set up a light with a random x and y location
+  var Light = function() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.lifetime = Math.random() * 0.5 + 0.5;
+
+    this.color = 'rgb(' + Math.floor(Math.random() * 255) + "," +
+                          Math.floor(Math.random() * 255) + "," +
+                          Math.floor(Math.random() * 255) + ")";
+  };
+
+  Light.prototype.update = function(dt) {
+    this.lifetime -= dt;
+    if(this.lifetime < 0) { this.dead = true; }
+  }
+
+  Light.prototype.draw = function(ctx) {
+    ctx.fillStyle = this.color;
+    ctx.globalAlpha = this.lifetime;
+    ctx.fillRect(this.x,this.y,4,4);
+  };
+
+  var particles = [];
+  var removedParticles = [];
+
+  function addParticle() {
+    particles.push(new Light());
+  }
+
+  for(var n = 0; n < 100; n++) { addParticle(); }
+
+  function drawParticles() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    for(var i = 0, len = particles.length; i<len; i++) {
+      var particle = particles[i];
+      particle.update(dt);
+
+      if(particle.dead) { removedParticles.push(particle); addParticle(); }
+
+      particle.draw(ctx);
+    }
+
+    for(var k =0;k<removedParticles.length;k++) {
+      var idx = particles.indexOf(removedParticles[k]);
+      if(idx != -1) { particles.splice(idx,1); }
+    }
+
+    setTimeout(drawParticles,dt*1000);
+  }
+
+  drawParticles();
+
+
+</script>
+</html>

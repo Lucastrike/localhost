@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas Example</title>
+	<style> /* Added to show the edge of canvas */
+		canvas { border: 1px solid black; }
+	</style>
+</head>
+<body>
+	<canvas id='canvasElem' width='500' height='480'>Canvas not supported. Update your browser!!!</canvas>
+</body>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	var canvas=$('#canvasElem').get(0);
+	var ctx =  canvas.getContext('2d');
+
+  var dt = 1/60;
+
+  // Skip the onload, image will be loaded by the time the user stamps anything
+  var snowflake = new Image();
+  snowflake.src = 'images/snowflake.png';
+
+  var snowflakeX = canvas.width/2,snowflakeY = canvas.height/2;
+  var angle = 0, scaleAmt = 1;
+
+  function drawSnowflake() {
+    setTimeout(drawSnowflake,dt*1000);
+
+    // Clear the canvas
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    angle += 1;
+    scaleAmt = Math.sin(angle * Math.PI / 180) + 2;
+
+    // Save the transformation matrix
+    ctx.save();
+
+    // Move something globally
+    ctx.translate(snowflakeX,snowflakeY);
+
+    // Then scale it
+    ctx.scale(scaleAmt,scaleAmt);
+
+    // Then rotate
+    ctx.rotate(angle * Math.PI / 180);
+
+    // Then make sure it's centered
+    ctx.translate(-snowflake.width/2, -snowflake.height/2);
+
+    // Finally draw at 0,0 (we've already transformed)
+    ctx.drawImage(snowflake,0,0);
+
+    // Restore the transformation matrix
+    ctx.restore();
+  }
+
+  drawSnowflake();
+
+
+
+</script>
+</html>

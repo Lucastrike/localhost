@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas Example</title>
+	<style> /* Added to show the edge of canvas */
+		canvas { border: 1px solid black; }
+	</style>
+</head>
+<body>
+	<canvas id='canvasElem' width='500' height='480'>Canvas not supported. Update your browser!!!</canvas>
+</body>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	var canvas=$('#canvasElem').get(0);
+	var ctx =  canvas.getContext('2d');
+
+	//ctx.fillStyle = "#F00";
+	//Crear formas básicas
+	//ctx.fillRect(50,50,100,100); //crear rectangulo
+	//ctx.clearRect(50,50,100,100); //eliminar rectangulo
+
+	//ctx.strokeStyle = "#000000"; //Color border
+	//ctx.strokeRect(50,50,100,100); //Crear borde rectangulo
+
+	//Eventos
+	// $(canvas).on('click',function(e) {
+	// 	alert("You clicked on the canvas!");
+	// });
+
+
+	//Al clickar en el canvas que cree random squares
+	// function randColor() {
+	// 	return Math.floor(Math.random() * 256);
+	// }
+
+	// $(canvas).on('click',function(e) {
+	// 	var r = randColor();
+	// 	var g = randColor();
+	// 	var b = randColor();
+	// 	ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+	// 	ctx.fillRect(e.offsetX - 20, e.offsetY - 20, 40, 40);
+	// });
+
+
+	//Dibujar con el ratón
+	// var drawing = false, lastX = null, lastY = null;
+
+	// $(canvas).on('mousedown',function(e) {
+	// 	drawing = true;
+	// 	lastX = e.offsetX;
+	// 	lastY = e.offsetY;
+	// });
+
+	// $(canvas).on('mousemove',function(e) {
+	// 	if(drawing) {
+	// 		ctx.beginPath();
+	// 		ctx.moveTo(lastX,lastY);
+	// 		ctx.lineTo(e.offsetX,e.offsetY);
+	// 		ctx.stroke();
+	// 		lastX = e.offsetX;
+	// 		lastY = e.offsetY;
+	// 	}
+	// });
+
+	// $(canvas).on('mouseup',function(e) {
+	// 	drawing = false;
+	// });
+
+  //Dibujar circulos moviendote con las teclas
+  //EC: shift colors on space
+   var COLORS = [ "#F00", "#0F0", "#00F", "#FF0", "#0FF", "#000" ];
+
+   var KEY_CODES = { 37:'left', 38:'up', 39:'right', 40:'down', 32 :'space', 13: 'enter' };
+   var x = 100, y = 100;
+
+   $(window).on('keydown',function(e) {
+   	if(KEY_CODES[e.which]) {
+   		switch(KEY_CODES[e.which]) {
+   			case 'left': x -= 20; break;
+   			case 'right': x += 20; break;
+   			case 'up': y -= 20; break;
+   			case 'down': y += 20; break;
+				case 'space': ctx.fillStyle = changeColour();
+   		}
+
+   		ctx.beginPath();
+   		ctx.arc(x,y,10,0,260);
+   		ctx.fill();
+   		e.preventDefault();
+   	}
+
+		function changeColour(){
+			var random = (Math.random()*6)+0;
+			random = parseInt(random);
+			return random;
+		}
+   });
+</script>
+</html>
