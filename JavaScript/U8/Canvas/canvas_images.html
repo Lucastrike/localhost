@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas Example</title>
+	<style> /* Added to show the edge of canvas */
+		canvas { border: 1px solid black; }
+	</style>
+</head>
+<body>
+	<canvas id='canvasElem' width='500' height='480'>Canvas not supported. Update your browser!!!</canvas>
+</body>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	var canvas=$('#canvasElem').get(0);
+	var ctx =  canvas.getContext('2d');
+
+	ctx.fillStyle = "#000";
+//Poner imagen normal
+  // var penguin = new Image();
+  // penguin.onload = function() {
+  //   console.log(penguin.width + " " + penguin.height);
+  //   ctx.drawImage(penguin,100,100);
+  // };
+
+  // penguin.src = 'images/penguin.png';
+
+  //Pone la imagen al hacer click
+    // Skip the onload, image will be loaded by the time the user stamps anything
+  // var penguin = new Image();
+  // penguin.src = 'images/penguin.png';
+
+  // canvas.addEventListener('click',function(e) {
+  //   ctx.drawImage(penguin,
+  //                 e.offsetX - penguin.width/2,
+  //                 e.offsetY - penguin.height/2);
+  // });
+
+  //Pinguino siguiendo el raton
+  // Skip the onload, image will be loaded by the time the user stamps anything
+  var dt = 1/60;
+  var penguin = new Image();
+  penguin.src = 'images/penguin.png';
+
+  var mouseX,mouseY;
+
+  $(canvas).on('mousemove',function(e) {
+  	mouseX = e.offsetX;
+  	mouseY = e.offsetY;
+  });
+
+  function drawPenguin() {
+  	setTimeout(drawPenguin,dt*1000);
+
+  	if(!mouseX) return;
+
+    // Clear the canvas
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    // Draw the little guy at the mouse position
+    ctx.drawImage(penguin,
+    	mouseX - penguin.width/2,
+    	mouseY - penguin.height/2);
+
+}
+
+drawPenguin();
+
+
+</script>
+</html>

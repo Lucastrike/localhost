@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas Example</title>
+	<style> /* Added to show the edge of canvas */
+		canvas { border: 1px solid black; }
+	</style>
+</head>
+<body>
+	<canvas id='canvasElem' width='500' height='480'>Canvas not supported. Update your browser!!!</canvas>
+</body>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	var canvas=$('#canvasElem').get(0);
+	var ctx =  canvas.getContext('2d');
+
+    canvas.style.backgroundColor = "#000";
+  var dt = 1/60;
+
+  var Star = function(initial) {
+    this.x = Math.random() * canvas.width;
+    this.y = initial ? Math.random() * canvas.height : 0;
+    this.opacity = Math.random();
+    this.speed = Math.random() * 150;
+  };
+
+  Star.prototype.update = function(dt) {
+    this.y += this.speed * dt;
+    if(this.y > canvas.height) this.dead = true;
+  }
+
+  Star.prototype.draw = function(ctx) {
+    ctx.fillStyle = "#FFF";
+    ctx.globalAlpha = this.opacity;
+    ctx.fillRect(this.x,this.y,2,2);
+  };
+
+  var particles = [];
+  var removedParticles = [];
+
+  function addParticle(initial) {
+    particles.push(new Star(initial));
+  }
+
+  for(var n = 0; n < 100; n++) { addParticle(true); }
+
+  function drawParticles() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    for(var i = 0, len = particles.length; i<len; i++) {
+      var particle = particles[i];
+      particle.update(dt);
+      if(particle.dead) { removedParticles.push(particle); addParticle(); }
+      particle.draw(ctx);
+    }
+
+    for(var k =0;k<removedParticles.length;k++) {
+      var idx = particles.indexOf(removedParticles[k]);
+      if(idx != -1) { particles.splice(idx,1); }
+    }
+
+    setTimeout(drawParticles,dt*1000);
+  }
+
+  drawParticles();
+
+
+
+</script>
+</html>
