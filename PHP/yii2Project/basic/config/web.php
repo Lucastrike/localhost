@@ -11,7 +11,15 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => true,
             'enableCsrfValidation' => true,
-            'cookieValidationKey' => '123456',
+            'cookieValidationKey' => '12345',
+        ],
+        'view' => [
+          'class' => 'yii\web\View',
+          'theme' => [
+            'class' => 'yii\base\Theme',
+            'pathMap' => ['@app/views' => 'themes/'],
+            'baseUrl'   => 'themes/'
+          ]
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',

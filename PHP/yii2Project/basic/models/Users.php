@@ -12,7 +12,7 @@ use Yii;
  * @property string $email
  * @property string $password
  *
- * @property ListsMovies[] $listsMovies
+ * @property Listsmovies[] $listsmovies
  * @property Score[] $scores
  * @property Movies[] $idMovies
  */
@@ -56,9 +56,9 @@ class Users extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getListsMovies()
+    public function getListsmovies()
     {
-        return $this->hasMany(ListsMovies::className(), ['id_users' => 'id']);
+        return $this->hasMany(Listsmovies::className(), ['id_users' => 'id']);
     }
 
     /**

@@ -14,18 +14,6 @@ class SiteController extends Controller
     /**
      * @inheritdoc
      */
-
-     //ActionSaluda
-    public function actionSaluda()
-    {
-        $mensaje="Hola a todos";
-        return $this->render("saluda",
-    [
-    "saluda"=>$mensaje,
-    ]);
-    }
-    //Fin actionSaluda
-
     public function behaviors()
     {
         return [

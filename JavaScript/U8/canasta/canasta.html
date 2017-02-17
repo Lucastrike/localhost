@@ -2,19 +2,27 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>canasta</title>
+    <title>Canasta</title>
     <style media="screen">
+      #score{
+        margin-left: 200px;
+        font-size: 40px;
+        font-weight: bold;
+        color: red;
+
+      }
       canvas {
         background-color: rgb(42, 171, 128);
       }
     </style>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
   <body>
-
-    <canvas id="canvas" width="700" height="500"></canvas>
-
-    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/canasta.js"></script>
-
+    <canvas id='canasta' width='500' height='480'></canvas>
+    <p id="score"></p>
+    
+  <script type="text/javascript" src="js/canasta.js"></script>
   </body>
 </html>

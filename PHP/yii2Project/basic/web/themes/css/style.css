@@ -1,0 +1,121 @@
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #000;
+  color: white;
+  background: url(../images/fsociety-mask-elliot.jpg) no-repeat center top #000;
+  background-attachment: fixed; 
+}
+
+.jumbotron {
+  color: #333;
+  margin-top: 10px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+  
+  background-color: transparent;
+  color: red;
+  border: 1px solid #d12026;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: white;
+  text-transform: uppercase;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+  background-color: transparent;
+  color: #d12026;
+  border-color: #d12026;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+  color: white;
+  background-color: #d12026;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+  color: #d12026;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+  background-color: #000;
+  color: #d12026;
+}
+
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+  background-color: transparent;
+  color: #d12026;
+}
+
+.dropdown-menu {
+  background-color: rgba(0,0,0,0.5);
+}
+
+.dropdown-menu>li>a {
+  color: white;
+}
+
+
+.top-logo {
+  text-align: center;
+  background: url(../images/mr-robot-logo.png) no-repeat center top;
+  background-size: contain;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.top-logo-wrapper p {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+
+.media-embed {
+  position: relative;  
+}
+
+.media-embed img {
+  width: 100%;
+}
+
+.media-embed .bold-text {
+  font-weight:900;
+  font-size: 72px;
+  letter-spacing: 20px;
+  position:absolute;
+  right:0;
+  bottom:0;
+  text-align: right;
+  text-transform: uppercase;
+  font-style: italic;
+  
+  color: #F5F5F5;
+  text-shadow: 10px 10px 10px #000;
+}
+
+.darkness {
+  border: 1px solid #d12026;
+  border-left: none;
+  border-right: none;
+  margin-top: 10px;
+}
+
+.darkness > [class^="col"] {
+  background-color: rgba(0,0,0,.75);
+}
+
+@media (max-width: 768px) {
+  .media-embed .bold-text {
+    font-size: 24px;
+  }
+  
+  .top-logo {
+    height: 50px;
+  }
+}

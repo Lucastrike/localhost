@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "lists_movies".
+ * This is the model class for table "listsmovies".
  *
  * @property integer $id
  * @property integer $id_lists
@@ -16,14 +16,14 @@ use Yii;
  * @property Movies $idMovies
  * @property Users $idUsers
  */
-class ListsMovies extends \yii\db\ActiveRecord
+class Listsmovies extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'lists_movies';
+        return 'listsmovies';
     }
 
     /**

@@ -10,7 +10,7 @@ use Yii;
  * @property integer $id
  * @property string $type
  *
- * @property ListsMovies[] $listsMovies
+ * @property Listsmovies[] $listsmovies
  */
 class Lists extends \yii\db\ActiveRecord
 {
@@ -48,8 +48,8 @@ class Lists extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getListsMovies()
+    public function getListsmovies()
     {
-        return $this->hasMany(ListsMovies::className(), ['id_lists' => 'id']);
+        return $this->hasMany(Listsmovies::className(), ['id_lists' => 'id']);
     }
 }

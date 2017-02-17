@@ -16,7 +16,7 @@ use Yii;
  * @property string $link
  * @property string $synopsis
  *
- * @property ListsMovies[] $listsMovies
+ * @property Listsmovies[] $listsmovies
  * @property Score[] $scores
  * @property Users[] $idUsers
  */
@@ -67,9 +67,9 @@ class Movies extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getListsMovies()
+    public function getListsmovies()
     {
-        return $this->hasMany(ListsMovies::className(), ['id_movies' => 'id']);
+        return $this->hasMany(Listsmovies::className(), ['id_movies' => 'id']);
     }
 
     /**
