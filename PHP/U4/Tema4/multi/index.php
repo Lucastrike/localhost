@@ -1,14 +1,10 @@
 <?php
-
 	require('languages.php');
-
 	$_SESSION['multilenguaje'];
 	if ( isset($_SESSION['multilenguaje']) ){
 		$lang = $_SESSION['multilenguaje'];
 	}
 ?>
-
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <body>
@@ -24,7 +20,6 @@
 						<input type="button" name="spain" value="Spain">
 						<input type="button" name="ingles" value="Ingles">
 					</form>
-
 					<?php
 					if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						if(isset($_POST["spain"])){

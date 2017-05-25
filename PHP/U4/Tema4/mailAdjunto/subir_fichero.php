@@ -1,6 +1,5 @@
 <?php
 include ('AttachMailer.php');
-
 /*if ($_FILES["fichero"]["error"] > 0) {
   echo "Error: " . $_FILES["fichero"]["error"] . "<br>";
 } else {

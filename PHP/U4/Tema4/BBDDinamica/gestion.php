@@ -21,7 +21,8 @@ $resultado2 = mysqli_query($conexion, $sql);
 
 //mostrar los nombre de los campos de la tabla
 $sql2 = "describe ".$tabla.";";
-$resultado3 = mysqli_query($conexion, $sql2); ?>
+$resultado3 = mysqli_query($conexion, $sql2);
+?>
 
 <html>
 	<body>

@@ -19,9 +19,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
 	//$mailer->attachFile("a.pdf");
 	$mailer->send() ? "envoye": "probleme envoi";
 	echo "enviado";
-
 }
-
 ?>
 <html>
 <body>
@@ -31,8 +29,6 @@ Asunto: <input type="text" name="asunto"><br />
 Mensaje: <input type="text" name="mensaje"><br>
 Fichero: <input type="file" name="fichero" id="fichero"><br>
 <input type="submit" name="enviar" value="enviar">
-
-
 </form>
 
 </body>
